@@ -65,7 +65,7 @@ struct SignInView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.emailAddress)
             
-                Text("Password")//.frame(width: 150, height: nil)
+                Text("Password")
                 SecureField("Password", text: $password, onCommit: {
                 })
                 .frame(width: 300, height: nil)
