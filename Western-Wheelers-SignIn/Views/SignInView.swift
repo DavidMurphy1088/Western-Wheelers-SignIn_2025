@@ -39,7 +39,6 @@ struct SignInView: View {
     func loginFailed(msg:String) {
         message = "Sorry, sign into Western Wheelers failed with these credentials"
     }
-    
     func connected() -> Bool {
         return NetworkReachability().checkConnection()
     }
