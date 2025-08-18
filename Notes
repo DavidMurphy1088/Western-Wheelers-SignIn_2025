@@ -1,0 +1,134 @@
+Version 2 17Nov2021
+Upgraded iOS to 15 and version running from xcode said wont run on 15.0. Changed signing --generate-entitlement-der
+However the existing version 1.13 live in the app store did run ok on 15.
+
+Sign In
+https://developers.google.com/identity/sign-in/ios/start-integrating
+
+APIs for iOS
+https://developers.google.com/workspace/guides/ios?ver=swift
+
+Doc https://github.com/google/google-api-objectivec-client-for-rest/wiki#query-operations
+Example https://medium.com/@kgleong/uploading-files-to-google-drive-using-the-google-ios-sdk-fcad3e9d6c07
+
+#client id 172130865834-7f790tqr6dsknu15dofckk6lgnai8em9.apps.googleusercontent.com
+iOS client id 505823345399-a79vs9g0o24984ionca518phdqdavbuc.apps.googleusercontent.com
+
+platform :ios, '8.0'
+target 'MyApp' do
+     pod 'GoogleAPIClientForREST/Sheets', '~> 1.2.1'
+     pod 'GoogleSignIn', '~> 4.1.1'
+     #pod 'Alamofire'
+     pod 'GoogleAPIClientForREST'
+ end
+
+-- todo
+move jim tempaltes
+notes to high
+test on phone
+
+-- script
+heres a qick demo of the wheelers ride sign up app
+startapp
+select ride
+
+select template
+- many of the weekly rides have the same people riding each week
+- tempaltes are useful if your ride usually has the same riders sigingup each week
+
+select whcih riders are signing up today
+
+add individula riders
+- show members
+- app has a list of all WW memeber with public profiles
+- if the phone number is public its also shown
+- add David M
+
+show rider info
+- make ride leader
+- can phone or text riders on the ride
+
+start ride
+
+at end of ride restart app
+- email rider list to the club
+- scroll down the list
+
+thanks for watching the demo
+
+//Takes a while for members to load
+3rd column can be phone number
+have redirect for generic 'CLub stats person'
+dont need empty drop down lines in tempate
+copied your templates and removed empty rows
+can exit and send later
+member with phone numbers
+
+install testfligt
+
+sign out
+clear rider sheet
+
+run app
+
+select a template
+    - can be in any google account
+    - lists the frequent riders for a ride
+    - optional
+ 
+select
+    - select 3 riders
+    
+club rider list
+    - downloaded from WA and kep updated
+    - shows phone nubmers for public numbers
+ 
+popup rider list
+    - add shu
+    - add min
+
+add ride leader and co-leader
+ 
+close app
+     - go do ride
+     
+reopen app
+    - do text, phone, email to rider on ride
+    - add another rider = sher
+    
+email
+    - show email content
+    - riders, sign in date, notes from template
+    - send
+    
+open email
+
+=========
+guest rider added name and phone
+emegecy phone and email added
+- only from club list but be added to template
+popup detail of email, phone
+default mail send
+
+TODO
+Drive account, hardcode?
+
+- Please make sure to ---delete the existing version--- before installing the new version. Touch and hold the app then select 'remove’ and then confirm.
+ 
+- One time WW sign in required. This ensures that not just anybody downloading the app can see WW member info. Required once only after install. (this concern was raised by Eric)
+ 
+- App now asks the user to select the ride from the upcoming rides listed on the WW site. This provides Eric with the exact ride name (which may not have been reliably evident from a ride template). It also provides the app with the offered ride levels.
+ 
+- For rides that are split into >1 level (e.g. LDT rides) the app asks the user to select which level(s) (C-, C+, D, etc) they are signing up. In this case, the email specifies which level is being reported.
+ 
+- Member privacy honored. If a member blocks their entire WW record they don't show on the select list (although they could be entered as a guest rider). If the member blocks certain fields (e.g. email, phone, etc) that data is not shown on the app (this concern was raised by David S)
+ 
+- The rider list is now always sorted alphabetically (suggested by Jim).
+ 
+- A new button is provided to clear riders off the list who are not checked (suggested by Jim). In any event, only checked riders are shown in the sign-up email.
+ 
+- Optional post-ride data can be entered (e.g. exact miles, feet climbed) and if entered will be included in the email.
+ 
+- Ride leader and co-leader can be specified on the rider list and will be shown in the email.
+ 
+

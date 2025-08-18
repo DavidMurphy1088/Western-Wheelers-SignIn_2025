@@ -1,0 +1,33 @@
+
+<html><body>
+
+<h1 style="font-size:40px;background-color:powderblue;">Summary</h1>
+<font size="6" face="arial" color="black">
+
+<ul>
+  <li>Use the <b>Select A Ride</b> button to select your ride from the list of current rides.</li>
+  <li>Use the <b>Add Rider</b> button to find member riders by name and add them to the sign-in.</li>
+  <li>Use the <b>Add Guest</b> button to add a guest to the sign-in.</li>
+  <li><b>Tap</b> a rider's name to get the rider's details or nominate the rider as the ride leader or co-leader.</li>
+  <li>Start the ride - when the ride starts you can shut down the app to save battery - it will remember the sign-ups.</li>
+  <li>At the end of the ride - re-start the app and use the <b>Ride Info</b> button to add any other ride info.</li>
+  <li>Use the <b>Email Ride Sheet</b> to email the ride sign-up to the club's statistician.</li>
+  <li>Use the <b>Clear Ride Sheet</b> after the email is confirmed as sent to sign up your next ride.</li>
+</ul>
+
+<h1 style="font-size:40px;background-color:powderblue;">Templates</h1>
+<font size="6" face="arial" color="black">
+<p>For some regularly scheduled rides the same group of riders sign-up each week. To save entering each rider individually, you can create a ride template that lists each rider in the group and add the group in one tap. You can sign-up all riders in the template using the <b>Select Ride Template</b> button. If a rider in the template is not present for your ride this week just uncheck their name.
+
+<p>You can setup templates for rides you lead using the <b>Templates</b> tab.</p>
+
+<h1 style="font-size:40px;background-color:powderblue;">Contact Riders</h1>
+<font size="6" face="arial" color="black">
+<p>Tap a rider's name to bring up the rider detail. If the rider's phone number is not private on the club site the app will allow you to phone or text the rider.</p>
+
+<h1 style="font-size:40px;background-color:powderblue;">Guests</h1>
+<font size="6" face="arial" color="black">
+<p>First, use the <b>Add Guest</b> button to add a guest then save the guest. At a minimum the guest's name and phone number is required. Then tap the guest's name to get the guest's details and use the <b>send Guest Waiver Agreement</b> text or email button to email the liability waiver to the guest. The message to the guest will prompt the guest to either reply text or reply email to indicate their agreement to the waiver.
+
+
+</body></html>

@@ -1,0 +1,877 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B1A8F9126953C51002E4EF1 /* AddRiderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A8F9026953C51002E4EF1 /* AddRiderView.swift */; };
+		7B1A8F992695422C002E4EF1 /* AddGuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A8F982695422C002E4EF1 /* AddGuestView.swift */; };
+		7B22418D269FEF0A00F06EB6 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 7B22418C269FEF0A00F06EB6 /* SwiftSoup */; };
+		7B2241A626A0A49000F06EB6 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2241A526A0A48F00F06EB6 /* SignInView.swift */; };
+		7B306D8C2683F92500DA337E /* GoogleDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B306D8B2683F92500DA337E /* GoogleDrive.swift */; };
+		7B306D91268428CD00DA337E /* DriveRideTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B306D90268428CD00DA337E /* DriveRideTemplates.swift */; };
+		7B306DA626845B2E00DA337E /* SignedInRiders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B306DA526845B2E00DA337E /* SignedInRiders.swift */; };
+		7B325FDF26C6FF6B001E4354 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B325FDE26C6FF6B001E4354 /* MapKit.framework */; };
+		7B67A55A26C33E4C00188EE5 /* TemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B67A55926C33E4C00188EE5 /* TemplatesView.swift */; };
+		7B67A57B26C42F2400188EE5 /* RideTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B67A57A26C42F2400188EE5 /* RideTemplate.swift */; };
+		7B8374B126DAB32F00822DBB /* doc_help.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B8374B026DAB32F00822DBB /* doc_help.txt */; };
+		7B8EA5E12690D8ED00313FF0 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8EA5E02690D8ED00313FF0 /* Messages.swift */; };
+		7B9999292680110300F3E65D /* Western_Wheelers_SignInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9999282680110300F3E65D /* Western_Wheelers_SignInApp.swift */; };
+		7B99992B2680110300F3E65D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99992A2680110300F3E65D /* MainView.swift */; };
+		7B99992D2680110400F3E65D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99992C2680110400F3E65D /* Assets.xcassets */; };
+		7B9999302680110400F3E65D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B99992F2680110400F3E65D /* Preview Assets.xcassets */; };
+		7B9999322680110400F3E65D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9999312680110400F3E65D /* Persistence.swift */; };
+		7B9999352680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B9999332680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodeld */; };
+		7B9999402680110400F3E65D /* Western_Wheelers_SignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99993F2680110400F3E65D /* Western_Wheelers_SignInTests.swift */; };
+		7B99994B2680110400F3E65D /* Western_Wheelers_SignInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B99994A2680110400F3E65D /* Western_Wheelers_SignInUITests.swift */; };
+		7B999965268038AA00F3E65D /* Notes in Resources */ = {isa = PBXBuildFile; fileRef = 7B999964268038AA00F3E65D /* Notes */; };
+		7B99996A268039F300F3E65D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7B999969268039F300F3E65D /* Podfile */; };
+		7B9999BB2680582900F3E65D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9999BA2680582900F3E65D /* AppDelegate.swift */; };
+		7B99A11326CC5C3500F0CFBD /* doc_waiver.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B99A11226CC5C3500F0CFBD /* doc_waiver.txt */; };
+		7BA132BA26C1E95600A0E689 /* SelectTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA132B926C1E95600A0E689 /* SelectTemplateView.swift */; };
+		7BA132C226C1EBB600A0E689 /* RideTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA132C126C1EBB600A0E689 /* RideTemplates.swift */; };
+		7BA4C7AE26C20BFE003F632B /* TemplateEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA4C7AD26C20BFE003F632B /* TemplateEditView.swift */; };
+		7BA4C7B726C230C7003F632B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4C7B626C230C7003F632B /* CloudKit.framework */; };
+		7BA71C0926A3A0CC00885D12 /* ClubRides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA71C0826A3A0CC00885D12 /* ClubRides.swift */; };
+		7BA71C0E26A3A1D000885D12 /* SelectRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA71C0D26A3A1CF00885D12 /* SelectRide.swift */; };
+		7BA71C1F26A5087000885D12 /* ClubRide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA71C1E26A5087000885D12 /* ClubRide.swift */; };
+		7BA71C3426A54B1800885D12 /* RideInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA71C3326A54B1800885D12 /* RideInfoView.swift */; };
+		7BA71C3F26A5E82B00885D12 /* VerifiedMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA71C3E26A5E82B00885D12 /* VerifiedMember.swift */; };
+		7BB6B1F2268A8C8E007941D2 /* WAApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6B1F1268A8C8E007941D2 /* WAApi.swift */; };
+		7BB6B1F7268A8E19007941D2 /* api_keys.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7BB6B1F6268A8E19007941D2 /* api_keys.txt */; };
+		7BB6B209268C124D007941D2 /* MembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6B208268C124D007941D2 /* MembersView.swift */; };
+		7BB6B20E268C1379007941D2 /* ClubMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6B20D268C1379007941D2 /* ClubMembers.swift */; };
+		7BB6B223268C4789007941D2 /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6B222268C4789007941D2 /* Rider.swift */; };
+		7BB6B232268E5725007941D2 /* SendMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6B231268E5725007941D2 /* SendMailView.swift */; };
+		7BB6D1FD26E6E8CA006392F1 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6D1FC26E6E8CA006392F1 /* AppUserDefaults.swift */; };
+		7BCBB2D32751606500527353 /* SignUpListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBB2D22751606500527353 /* SignUpListener.swift */; };
+		7BF9449726831D610034A70B /* SelectDriveTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9449626831D610034A70B /* SelectDriveTemplateView.swift */; };
+		7BFDDEDD2698DD8E00497A21 /* RiderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDDEDC2698DD8E00497A21 /* RiderDetailView.swift */; };
+		B00DFE09264FD308DB390E21 /* Pods_Western_Wheelers_SignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1061FF8E30EBBB5D6B7174DD /* Pods_Western_Wheelers_SignIn.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B99993C2680110400F3E65D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B99991D2680110300F3E65D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B9999242680110300F3E65D;
+			remoteInfo = "Western-Wheelers-SignIn";
+		};
+		7B9999472680110400F3E65D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B99991D2680110300F3E65D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B9999242680110300F3E65D;
+			remoteInfo = "Western-Wheelers-SignIn";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1061FF8E30EBBB5D6B7174DD /* Pods_Western_Wheelers_SignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Western_Wheelers_SignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42EAFC4A17B4F09F4C9FC0B4 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Western-Wheelers-SignIn.debug.xcconfig"; path = "Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn.debug.xcconfig"; sourceTree = "<group>"; };
+		7A6BF3B3F1625578E772F595 /* Pods-Western-Wheelers-SignIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Western-Wheelers-SignIn.release.xcconfig"; path = "Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn.release.xcconfig"; sourceTree = "<group>"; };
+		7B1A8F9026953C51002E4EF1 /* AddRiderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRiderView.swift; sourceTree = "<group>"; };
+		7B1A8F982695422C002E4EF1 /* AddGuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestView.swift; sourceTree = "<group>"; };
+		7B2241A526A0A48F00F06EB6 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		7B306D8B2683F92500DA337E /* GoogleDrive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDrive.swift; sourceTree = "<group>"; };
+		7B306D90268428CD00DA337E /* DriveRideTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRideTemplates.swift; sourceTree = "<group>"; };
+		7B306DA526845B2E00DA337E /* SignedInRiders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInRiders.swift; sourceTree = "<group>"; };
+		7B325FDE26C6FF6B001E4354 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7B67A55926C33E4C00188EE5 /* TemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesView.swift; sourceTree = "<group>"; };
+		7B67A57A26C42F2400188EE5 /* RideTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTemplate.swift; sourceTree = "<group>"; };
+		7B8374B026DAB32F00822DBB /* doc_help.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = doc_help.txt; sourceTree = "<group>"; };
+		7B8EA5E02690D8ED00313FF0 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		7B9999252680110300F3E65D /* Western-Wheelers-SignIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Western-Wheelers-SignIn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B9999282680110300F3E65D /* Western_Wheelers_SignInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Western_Wheelers_SignInApp.swift; sourceTree = "<group>"; };
+		7B99992A2680110300F3E65D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		7B99992C2680110400F3E65D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B99992F2680110400F3E65D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7B9999312680110400F3E65D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		7B9999342680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Western_Wheelers_SignIn.xcdatamodel; sourceTree = "<group>"; };
+		7B9999362680110400F3E65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B99993B2680110400F3E65D /* Western-Wheelers-SignInTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Western-Wheelers-SignInTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B99993F2680110400F3E65D /* Western_Wheelers_SignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Western_Wheelers_SignInTests.swift; sourceTree = "<group>"; };
+		7B9999412680110400F3E65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B9999462680110400F3E65D /* Western-Wheelers-SignInUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Western-Wheelers-SignInUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B99994A2680110400F3E65D /* Western_Wheelers_SignInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Western_Wheelers_SignInUITests.swift; sourceTree = "<group>"; };
+		7B99994C2680110400F3E65D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B999964268038AA00F3E65D /* Notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = Notes; sourceTree = "<group>"; };
+		7B999969268039F300F3E65D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7B9999BA2680582900F3E65D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B99A11226CC5C3500F0CFBD /* doc_waiver.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = doc_waiver.txt; sourceTree = "<group>"; };
+		7BA132B926C1E95600A0E689 /* SelectTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTemplateView.swift; sourceTree = "<group>"; };
+		7BA132C126C1EBB600A0E689 /* RideTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTemplates.swift; sourceTree = "<group>"; };
+		7BA4C7AD26C20BFE003F632B /* TemplateEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateEditView.swift; sourceTree = "<group>"; };
+		7BA4C7B226C230A3003F632B /* Western-Wheelers-SignIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Western-Wheelers-SignIn.entitlements"; sourceTree = "<group>"; };
+		7BA4C7B626C230C7003F632B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7BA71C0826A3A0CC00885D12 /* ClubRides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubRides.swift; sourceTree = "<group>"; };
+		7BA71C0D26A3A1CF00885D12 /* SelectRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRide.swift; sourceTree = "<group>"; };
+		7BA71C1E26A5087000885D12 /* ClubRide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubRide.swift; sourceTree = "<group>"; };
+		7BA71C3326A54B1800885D12 /* RideInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideInfoView.swift; sourceTree = "<group>"; };
+		7BA71C3E26A5E82B00885D12 /* VerifiedMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedMember.swift; sourceTree = "<group>"; };
+		7BB6B1F1268A8C8E007941D2 /* WAApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAApi.swift; sourceTree = "<group>"; };
+		7BB6B1F6268A8E19007941D2 /* api_keys.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = api_keys.txt; sourceTree = "<group>"; };
+		7BB6B208268C124D007941D2 /* MembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersView.swift; sourceTree = "<group>"; };
+		7BB6B20D268C1379007941D2 /* ClubMembers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubMembers.swift; sourceTree = "<group>"; };
+		7BB6B222268C4789007941D2 /* Rider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
+		7BB6B231268E5725007941D2 /* SendMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMailView.swift; sourceTree = "<group>"; };
+		7BB6D1FC26E6E8CA006392F1 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
+		7BCBB2D22751606500527353 /* SignUpListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpListener.swift; sourceTree = "<group>"; };
+		7BF9449626831D610034A70B /* SelectDriveTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDriveTemplateView.swift; sourceTree = "<group>"; };
+		7BFDDEDC2698DD8E00497A21 /* RiderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderDetailView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B9999222680110300F3E65D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BA4C7B726C230C7003F632B /* CloudKit.framework in Frameworks */,
+				7B325FDF26C6FF6B001E4354 /* MapKit.framework in Frameworks */,
+				7B22418D269FEF0A00F06EB6 /* SwiftSoup in Frameworks */,
+				B00DFE09264FD308DB390E21 /* Pods_Western_Wheelers_SignIn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B9999382680110400F3E65D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B9999432680110400F3E65D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		719260E60608610A131597E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42EAFC4A17B4F09F4C9FC0B4 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */,
+				7A6BF3B3F1625578E772F595 /* Pods-Western-Wheelers-SignIn.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7B99991C2680110300F3E65D = {
+			isa = PBXGroup;
+			children = (
+				7B999969268039F300F3E65D /* Podfile */,
+				7B999964268038AA00F3E65D /* Notes */,
+				7B9999272680110300F3E65D /* Western-Wheelers-SignIn */,
+				7B99993E2680110400F3E65D /* Western-Wheelers-SignInTests */,
+				7B9999492680110400F3E65D /* Western-Wheelers-SignInUITests */,
+				7B9999262680110300F3E65D /* Products */,
+				719260E60608610A131597E5 /* Pods */,
+				C8AD8D138064B51C177A2C41 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7B9999262680110300F3E65D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B9999252680110300F3E65D /* Western-Wheelers-SignIn.app */,
+				7B99993B2680110400F3E65D /* Western-Wheelers-SignInTests.xctest */,
+				7B9999462680110400F3E65D /* Western-Wheelers-SignInUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B9999272680110300F3E65D /* Western-Wheelers-SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				7B99A11126CC5C1300F0CFBD /* Documents */,
+				7BA4C7B226C230A3003F632B /* Western-Wheelers-SignIn.entitlements */,
+				7BF9449B26831D8F0034A70B /* Model */,
+				7BF9449526831D4A0034A70B /* Views */,
+				7B9999BA2680582900F3E65D /* AppDelegate.swift */,
+				7B9999282680110300F3E65D /* Western_Wheelers_SignInApp.swift */,
+				7B99992C2680110400F3E65D /* Assets.xcassets */,
+				7B9999312680110400F3E65D /* Persistence.swift */,
+				7B9999362680110400F3E65D /* Info.plist */,
+				7B9999332680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodeld */,
+				7B99992E2680110400F3E65D /* Preview Content */,
+			);
+			path = "Western-Wheelers-SignIn";
+			sourceTree = "<group>";
+		};
+		7B99992E2680110400F3E65D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7B99992F2680110400F3E65D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7B99993E2680110400F3E65D /* Western-Wheelers-SignInTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B99993F2680110400F3E65D /* Western_Wheelers_SignInTests.swift */,
+				7B9999412680110400F3E65D /* Info.plist */,
+			);
+			path = "Western-Wheelers-SignInTests";
+			sourceTree = "<group>";
+		};
+		7B9999492680110400F3E65D /* Western-Wheelers-SignInUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B99994A2680110400F3E65D /* Western_Wheelers_SignInUITests.swift */,
+				7B99994C2680110400F3E65D /* Info.plist */,
+			);
+			path = "Western-Wheelers-SignInUITests";
+			sourceTree = "<group>";
+		};
+		7B99A11126CC5C1300F0CFBD /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				7B99A11226CC5C3500F0CFBD /* doc_waiver.txt */,
+				7B8374B026DAB32F00822DBB /* doc_help.txt */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		7BF9449526831D4A0034A70B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B1A8F982695422C002E4EF1 /* AddGuestView.swift */,
+				7B1A8F9026953C51002E4EF1 /* AddRiderView.swift */,
+				7B99992A2680110300F3E65D /* MainView.swift */,
+				7BB6B208268C124D007941D2 /* MembersView.swift */,
+				7BA71C3326A54B1800885D12 /* RideInfoView.swift */,
+				7BFDDEDC2698DD8E00497A21 /* RiderDetailView.swift */,
+				7BF9449626831D610034A70B /* SelectDriveTemplateView.swift */,
+				7BA71C0D26A3A1CF00885D12 /* SelectRide.swift */,
+				7BA132B926C1E95600A0E689 /* SelectTemplateView.swift */,
+				7BB6B231268E5725007941D2 /* SendMailView.swift */,
+				7B2241A526A0A48F00F06EB6 /* SignInView.swift */,
+				7BA4C7AD26C20BFE003F632B /* TemplateEditView.swift */,
+				7B67A55926C33E4C00188EE5 /* TemplatesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7BF9449B26831D8F0034A70B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7BB6B1F6268A8E19007941D2 /* api_keys.txt */,
+				7BB6D1FC26E6E8CA006392F1 /* AppUserDefaults.swift */,
+				7BB6B20D268C1379007941D2 /* ClubMembers.swift */,
+				7BA71C1E26A5087000885D12 /* ClubRide.swift */,
+				7BA71C0826A3A0CC00885D12 /* ClubRides.swift */,
+				7B306D90268428CD00DA337E /* DriveRideTemplates.swift */,
+				7B306D8B2683F92500DA337E /* GoogleDrive.swift */,
+				7B8EA5E02690D8ED00313FF0 /* Messages.swift */,
+				7BB6B222268C4789007941D2 /* Rider.swift */,
+				7B67A57A26C42F2400188EE5 /* RideTemplate.swift */,
+				7BA132C126C1EBB600A0E689 /* RideTemplates.swift */,
+				7B306DA526845B2E00DA337E /* SignedInRiders.swift */,
+				7BCBB2D22751606500527353 /* SignUpListener.swift */,
+				7BA71C3E26A5E82B00885D12 /* VerifiedMember.swift */,
+				7BB6B1F1268A8C8E007941D2 /* WAApi.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C8AD8D138064B51C177A2C41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B325FDE26C6FF6B001E4354 /* MapKit.framework */,
+				7BA4C7B626C230C7003F632B /* CloudKit.framework */,
+				1061FF8E30EBBB5D6B7174DD /* Pods_Western_Wheelers_SignIn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B9999242680110300F3E65D /* Western-Wheelers-SignIn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B99994F2680110400F3E65D /* Build configuration list for PBXNativeTarget "Western-Wheelers-SignIn" */;
+			buildPhases = (
+				F6E2CCD6B43B64C80F0158CF /* [CP] Check Pods Manifest.lock */,
+				7B9999212680110300F3E65D /* Sources */,
+				7B9999222680110300F3E65D /* Frameworks */,
+				7B9999232680110300F3E65D /* Resources */,
+				19F7E2B599452BCC7AA70D16 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Western-Wheelers-SignIn";
+			packageProductDependencies = (
+				7B22418C269FEF0A00F06EB6 /* SwiftSoup */,
+			);
+			productName = "Western-Wheelers-SignIn";
+			productReference = 7B9999252680110300F3E65D /* Western-Wheelers-SignIn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B99993A2680110400F3E65D /* Western-Wheelers-SignInTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B9999522680110400F3E65D /* Build configuration list for PBXNativeTarget "Western-Wheelers-SignInTests" */;
+			buildPhases = (
+				7B9999372680110400F3E65D /* Sources */,
+				7B9999382680110400F3E65D /* Frameworks */,
+				7B9999392680110400F3E65D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B99993D2680110400F3E65D /* PBXTargetDependency */,
+			);
+			name = "Western-Wheelers-SignInTests";
+			productName = "Western-Wheelers-SignInTests";
+			productReference = 7B99993B2680110400F3E65D /* Western-Wheelers-SignInTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B9999452680110400F3E65D /* Western-Wheelers-SignInUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B9999552680110400F3E65D /* Build configuration list for PBXNativeTarget "Western-Wheelers-SignInUITests" */;
+			buildPhases = (
+				7B9999422680110400F3E65D /* Sources */,
+				7B9999432680110400F3E65D /* Frameworks */,
+				7B9999442680110400F3E65D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B9999482680110400F3E65D /* PBXTargetDependency */,
+			);
+			name = "Western-Wheelers-SignInUITests";
+			productName = "Western-Wheelers-SignInUITests";
+			productReference = 7B9999462680110400F3E65D /* Western-Wheelers-SignInUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B99991D2680110300F3E65D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					7B9999242680110300F3E65D = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					7B99993A2680110400F3E65D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 7B9999242680110300F3E65D;
+					};
+					7B9999452680110400F3E65D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 7B9999242680110300F3E65D;
+					};
+				};
+			};
+			buildConfigurationList = 7B9999202680110300F3E65D /* Build configuration list for PBXProject "Western-Wheelers-SignIn" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B99991C2680110300F3E65D;
+			packageReferences = (
+				7B22418B269FEF0A00F06EB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
+			productRefGroup = 7B9999262680110300F3E65D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B9999242680110300F3E65D /* Western-Wheelers-SignIn */,
+				7B99993A2680110400F3E65D /* Western-Wheelers-SignInTests */,
+				7B9999452680110400F3E65D /* Western-Wheelers-SignInUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B9999232680110300F3E65D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B8374B126DAB32F00822DBB /* doc_help.txt in Resources */,
+				7B999965268038AA00F3E65D /* Notes in Resources */,
+				7B99A11326CC5C3500F0CFBD /* doc_waiver.txt in Resources */,
+				7BB6B1F7268A8E19007941D2 /* api_keys.txt in Resources */,
+				7B9999302680110400F3E65D /* Preview Assets.xcassets in Resources */,
+				7B99996A268039F300F3E65D /* Podfile in Resources */,
+				7B99992D2680110400F3E65D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B9999392680110400F3E65D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B9999442680110400F3E65D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19F7E2B599452BCC7AA70D16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6E2CCD6B43B64C80F0158CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Western-Wheelers-SignIn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B9999212680110300F3E65D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BA71C3F26A5E82B00885D12 /* VerifiedMember.swift in Sources */,
+				7B9999322680110400F3E65D /* Persistence.swift in Sources */,
+				7B1A8F9126953C51002E4EF1 /* AddRiderView.swift in Sources */,
+				7BF9449726831D610034A70B /* SelectDriveTemplateView.swift in Sources */,
+				7BB6B223268C4789007941D2 /* Rider.swift in Sources */,
+				7BB6B209268C124D007941D2 /* MembersView.swift in Sources */,
+				7BB6B1F2268A8C8E007941D2 /* WAApi.swift in Sources */,
+				7B306D8C2683F92500DA337E /* GoogleDrive.swift in Sources */,
+				7BCBB2D32751606500527353 /* SignUpListener.swift in Sources */,
+				7B67A55A26C33E4C00188EE5 /* TemplatesView.swift in Sources */,
+				7BA71C3426A54B1800885D12 /* RideInfoView.swift in Sources */,
+				7BA4C7AE26C20BFE003F632B /* TemplateEditView.swift in Sources */,
+				7BB6B232268E5725007941D2 /* SendMailView.swift in Sources */,
+				7BA71C0926A3A0CC00885D12 /* ClubRides.swift in Sources */,
+				7BA132C226C1EBB600A0E689 /* RideTemplates.swift in Sources */,
+				7BFDDEDD2698DD8E00497A21 /* RiderDetailView.swift in Sources */,
+				7BA132BA26C1E95600A0E689 /* SelectTemplateView.swift in Sources */,
+				7B67A57B26C42F2400188EE5 /* RideTemplate.swift in Sources */,
+				7BA71C1F26A5087000885D12 /* ClubRide.swift in Sources */,
+				7B8EA5E12690D8ED00313FF0 /* Messages.swift in Sources */,
+				7B1A8F992695422C002E4EF1 /* AddGuestView.swift in Sources */,
+				7B9999352680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodeld in Sources */,
+				7B306DA626845B2E00DA337E /* SignedInRiders.swift in Sources */,
+				7B2241A626A0A49000F06EB6 /* SignInView.swift in Sources */,
+				7B9999BB2680582900F3E65D /* AppDelegate.swift in Sources */,
+				7BA71C0E26A3A1D000885D12 /* SelectRide.swift in Sources */,
+				7B99992B2680110300F3E65D /* MainView.swift in Sources */,
+				7BB6D1FD26E6E8CA006392F1 /* AppUserDefaults.swift in Sources */,
+				7B9999292680110300F3E65D /* Western_Wheelers_SignInApp.swift in Sources */,
+				7BB6B20E268C1379007941D2 /* ClubMembers.swift in Sources */,
+				7B306D91268428CD00DA337E /* DriveRideTemplates.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B9999372680110400F3E65D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B9999402680110400F3E65D /* Western_Wheelers_SignInTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B9999422680110400F3E65D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B99994B2680110400F3E65D /* Western_Wheelers_SignInUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B99993D2680110400F3E65D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B9999242680110300F3E65D /* Western-Wheelers-SignIn */;
+			targetProxy = 7B99993C2680110400F3E65D /* PBXContainerItemProxy */;
+		};
+		7B9999482680110400F3E65D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B9999242680110300F3E65D /* Western-Wheelers-SignIn */;
+			targetProxy = 7B9999472680110400F3E65D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7B99994D2680110400F3E65D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B99994E2680110400F3E65D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B9999502680110400F3E65D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42EAFC4A17B4F09F4C9FC0B4 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Western-Wheelers-SignIn/Western-Wheelers-SignIn.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Western-Wheelers-SignIn/Preview Content\"";
+				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Western-Wheelers-SignIn/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.4;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignIn--com.dmurphy.westernwheelers.Western-Wheelers-SignIn--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B9999512680110400F3E65D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A6BF3B3F1625578E772F595 /* Pods-Western-Wheelers-SignIn.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Western-Wheelers-SignIn/Western-Wheelers-SignIn.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Western-Wheelers-SignIn/Preview Content\"";
+				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Western-Wheelers-SignIn/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.4;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignIn--com.dmurphy.westernwheelers.Western-Wheelers-SignIn--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7B9999532680110400F3E65D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
+				INFOPLIST_FILE = "Western-Wheelers-SignInTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignInTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Western-Wheelers-SignIn.app/Western-Wheelers-SignIn";
+			};
+			name = Debug;
+		};
+		7B9999542680110400F3E65D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
+				INFOPLIST_FILE = "Western-Wheelers-SignInTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignInTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Western-Wheelers-SignIn.app/Western-Wheelers-SignIn";
+			};
+			name = Release;
+		};
+		7B9999562680110400F3E65D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
+				INFOPLIST_FILE = "Western-Wheelers-SignInUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignInUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Western-Wheelers-SignIn";
+			};
+			name = Debug;
+		};
+		7B9999572680110400F3E65D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
+				INFOPLIST_FILE = "Western-Wheelers-SignInUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignInUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Western-Wheelers-SignIn";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B9999202680110300F3E65D /* Build configuration list for PBXProject "Western-Wheelers-SignIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B99994D2680110400F3E65D /* Debug */,
+				7B99994E2680110400F3E65D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B99994F2680110400F3E65D /* Build configuration list for PBXNativeTarget "Western-Wheelers-SignIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B9999502680110400F3E65D /* Debug */,
+				7B9999512680110400F3E65D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B9999522680110400F3E65D /* Build configuration list for PBXNativeTarget "Western-Wheelers-SignInTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B9999532680110400F3E65D /* Debug */,
+				7B9999542680110400F3E65D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B9999552680110400F3E65D /* Build configuration list for PBXNativeTarget "Western-Wheelers-SignInUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B9999562680110400F3E65D /* Debug */,
+				7B9999572680110400F3E65D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7B22418B269FEF0A00F06EB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B22418C269FEF0A00F06EB6 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B22418B269FEF0A00F06EB6 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		7B9999332680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7B9999342680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodel */,
+			);
+			currentVersion = 7B9999342680110400F3E65D /* Western_Wheelers_SignIn.xcdatamodel */;
+			path = Western_Wheelers_SignIn.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7B99991D2680110300F3E65D /* Project object */;
+}

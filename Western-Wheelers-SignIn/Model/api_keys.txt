@@ -1,0 +1,12 @@
+
+{
+  "open_weather_api_key_old1": "851430d1e45a8af1ab6b193b04b0f2d1",
+  "open_weather_api_key_old2": "ecef8df10454ee1d9b5e1edec897bae6",
+  "open_weather_api_key": "20f9cc4e85330700f89b4fca1d7ee2ea",
+  "WA_username_old": "davidp.murphy@sbcglobal.net",
+  "WA_username": "davidmurphy1088@gmail.com",
+  "WA_pwd_OLD": "zen",
+  "WA_pwd": "WW_AppleApps!01"
+}
+
+

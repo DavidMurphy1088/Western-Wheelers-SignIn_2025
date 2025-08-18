@@ -1,0 +1,6 @@
+framework module Pods_Western_Wheelers_SignIn {
+  umbrella header "Pods-Western-Wheelers-SignIn-umbrella.h"
+
+  export *
+  module * { export * }
+}
