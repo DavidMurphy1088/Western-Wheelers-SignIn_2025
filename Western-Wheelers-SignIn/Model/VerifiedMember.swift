@@ -9,12 +9,12 @@ class VerifiedMember : ObservableObject {
     private init() {
     }
     
-    func signOut() {
-        DispatchQueue.main.async { [self] in
-            self.username = nil
-            save()
-        }
-    }
+//    func signOut() {
+//        DispatchQueue.main.async { [self] in
+//            self.username = nil
+//            save()
+//        }
+//    }
 
     func signIn(user: String, pwd: String, fail: @escaping (String) -> ()) {
         let url = "https://api.wildapricot.org/publicview/v1/accounts/$id/contacts/me"
@@ -27,6 +27,7 @@ class VerifiedMember : ObservableObject {
             if let email = dict["Email"] as? String {
                 DispatchQueue.main.async {
                     self.username = email
+                    VerifiedMember.instance.save()
                 }
             }
          }

@@ -73,11 +73,15 @@ struct SignInView: View {
                 HStack {
                     Button(action: {
                         Messages.instance.clearError()
-                        //member.signIn(user: self.username, pwd: self.password, fail: self.loginFailed)
-                        member.signIn(user: "davidmurphy1088@gmail.com", pwd: "WW_AppleApps!01", fail: self.loginFailed)
+                        member.signIn(user: self.username, pwd: self.password, fail: self.loginFailed)
+                        //member.signIn(user: "davidmurphy1088@gmail.com", pwd: "WW_AppleApps!01", fail: self.loginFailed)
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
-                        Text("Sign In")
+                        VStack {
+                            Text("")
+                            Text("")
+                            Text("Sign In").font(.title)
+                        }
                     }
                 }
                 if let msg = self.message {

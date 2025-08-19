@@ -115,7 +115,6 @@ class ClubRide : Identifiable, Decodable, Encodable, ObservableObject {
     
     func dateDisplay() -> String {
         return Messages.dateDisplay(dateToShow: self.dateTime, addDay: true, addTime: self.timeWasSpecified)
-
     }
     
     static func guestWaiverDoc(ride: ClubRide?, html: Bool) -> String {

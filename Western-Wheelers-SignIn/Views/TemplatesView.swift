@@ -42,10 +42,10 @@ struct TemplatesView: View {
     
     func dateStr(template:RideTemplate, created:Bool) -> String {
         if created {
-            return Messages.dateDisplay(dateToShow: template.createDate, addDay: false, addTime: true)
+            return Messages.dateDisplay(dateToShow: template.createDate, addDay: false, addTime: false)
         }
         else {
-            return Messages.dateDisplay(dateToShow: template.lastUpdate, addDay: false, addTime: true)
+            return Messages.dateDisplay(dateToShow: template.lastUpdate, addDay: false, addTime: false)
         }
     }
     

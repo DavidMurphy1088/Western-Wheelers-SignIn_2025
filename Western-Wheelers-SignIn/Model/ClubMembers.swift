@@ -8,29 +8,33 @@ class ClubMembers : ObservableObject {
     private let api = WAApi()
 
     private init() {
-        //https://app.swaggerhub.com/apis/WildApricot/wild-apricot_api_for_non_administrative_access/7.15.0#/Contacts/get_accounts__accountId__contacts
+
         DispatchQueue.global(qos: .userInitiated).async {
             var done = false
-            var pos = 0
-            let pageSize = 400 //500 seems to be max and the default if no page size specified.
+            var skipRecordCount = 0
+            //let pageSize = 400
+            let pageSize = 100 //19Aug2025 100 is new Wild Apricot max page size
             var downloadList:[Rider] = []
+            var pageCount = 0
 
             while !done {
                 var url = "https://api.wildapricot.org/publicview/v1/accounts/$id/contacts"
-                url += "?%24skip=\(pos)&%24top=\(pageSize)"
+                url += "?%24skip=\(skipRecordCount)&%24top=\(pageSize)"
                 self.pageList = []
                 self.api.apiCall(context: "Load members", url: url, username:nil, password:nil, completion: self.loadMembers, fail: self.loadMembersFailed)
-                pos += pageSize
+                skipRecordCount += pageSize
                 downloadList.append(contentsOf: self.pageList)
+                pageCount += 1
                 if self.pageList.count < pageSize {
                     done = true
                     break
                 }
+                
             }
             downloadList.sort {
                 $0.getDisplayName().uppercased() < $1.getDisplayName().uppercased()
             }
-            let msg = "Downloaded \(self.clubList.count) club members"
+            let msg = "Downloaded \(self.clubList.count) club members in \(pageCount) download pages"
             Messages.instance.sendMessage(msg: msg)
             if downloadList.count > 0 {
                 self.updateList(updList: downloadList)
@@ -60,6 +64,25 @@ class ClubMembers : ObservableObject {
         else {
             Messages.instance.sendMessage(msg: "Please wait for the club member list to download")
         }
+    }
+    
+    private func getURL(skip:Int) -> String {
+        var eventsUrl = "https://api.wildapricot.org/v2/accounts/$id/events"
+        let formatter = DateFormatter()
+        let startDate = Calendar.current.date(byAdding: .day, value: -4, to: Date())!
+        
+        ///Got to ensure we load all the session templates
+        formatter.dateFormat = "yyyy-01-01"
+        //formatter.dateFormat = "yyyy-MM-dd"
+        let startDateStr = formatter.string(from: startDate)
+        eventsUrl = eventsUrl + "?%24filter="
+        eventsUrl += "StartDate%20gt%20\(startDateStr)"
+        
+        let maxPageSize = 100 ///WA imposed max page size
+        eventsUrl = eventsUrl + "&%24top=\(maxPageSize)&%24skip=\(skip)"
+        
+        print("=========", eventsUrl)
+        return eventsUrl
     }
     
     func loadMembersFailed(msg: String) {

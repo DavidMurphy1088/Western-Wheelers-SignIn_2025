@@ -61,22 +61,41 @@ class Messages : ObservableObject {
         }
     }
     
-    static func dateDisplay(dateToShow:Date, addDay:Bool, addTime:Bool) -> String {
-        let formatter = DateFormatter() // this formats the day,time according to users local timezone
-        formatter.dateFormat = addDay ? "EEEE MMM d" : "MMM d"
+//    static func dateDisplay(dateToShow:Date, addDay:Bool, addTime:Bool) -> String {
+//        let formatter = DateFormatter() // this formats the day,time according to users local timezone
+//        formatter.dateFormat = addDay ? "EEEE MMM d" : "MMM d"
+//        let dayDisp = formatter.string(from: dateToShow)
+//        if !addTime {
+//            return dayDisp
+//        }
+//        
+//        // force 12-hour format even if they have 24 hour set on phone
+//        let timeFmt = "h:mm a"
+//        formatter.setLocalizedDateFormatFromTemplate(timeFmt)
+//        formatter.dateFormat = timeFmt
+//        formatter.locale = Locale(identifier: "en_US")
+//        let timeDisp = formatter.string(from: dateToShow)
+//        let disp = dayDisp + ", " + timeDisp
+//        return disp
+//    }
+    static func dateDisplay(dateToShow: Date, addDay: Bool, addTime: Bool) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US") // ensures English month names
+        
+        // Day + month + year
+        formatter.dateFormat = addDay ? "EEEE, MMM d, yyyy" : "MMM d, yyyy"
         let dayDisp = formatter.string(from: dateToShow)
+        
         if !addTime {
             return dayDisp
         }
         
-        // force 12-hour format even if they have 24 hour set on phone
+        // Force 12-hour clock
         let timeFmt = "h:mm a"
-        formatter.setLocalizedDateFormatFromTemplate(timeFmt)
         formatter.dateFormat = timeFmt
-        formatter.locale = Locale(identifier: "en_US")
         let timeDisp = formatter.string(from: dateToShow)
-        let disp = dayDisp + ", " + timeDisp
-        return disp
+        
+        return dayDisp + ", " + timeDisp
     }
-
+    
 }

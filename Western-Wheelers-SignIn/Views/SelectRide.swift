@@ -14,7 +14,7 @@ struct SelectRide : View {
             ScrollView {
                 ScrollViewReader { proxy in
                     VStack {
-                        ForEach(rides.list, id: \.self.id) { ride in
+                        ForEach(rides.listPublished, id: \.self.id) { ride in
                             HStack {
                                 VStack {
                                 Button(action: {

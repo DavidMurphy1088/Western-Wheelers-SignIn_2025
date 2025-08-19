@@ -1,0 +1,8 @@
+#amplify
+*.vtl
+build/
+dist/
+node_modules/
+/Pods
+api_keys.txt
+

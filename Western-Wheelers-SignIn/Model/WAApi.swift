@@ -25,7 +25,7 @@ class NetworkReachability: ObservableObject {
     }
 }
 
-class WAApi { //}: ObservableObject {
+class WAApi {
     private var token: String! = nil
     private var accountId:String! = nil
 
@@ -93,7 +93,6 @@ class WAApi { //}: ObservableObject {
         else {
             user = apiKey(key: "WA_username")
             pwd = apiKey(key: "WA_pwd")
-            //pwd = pwd+pwd+pwd
         }
         
         //get API token

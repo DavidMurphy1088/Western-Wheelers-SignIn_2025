@@ -4,25 +4,45 @@ import Foundation
 class ClubRides : ObservableObject {
     static let instance:ClubRides = ClubRides()
     private let api = WAApi()
-    @Published public var list:[ClubRide] = []
+    @Published public var listPublished:[ClubRide] = []
     @Published public var errMsg:String? = nil
+    var listFromAPI:[ClubRide] = []
+    var listPagedSkip = 0
     
     private init() {
-        list = []
+        listPublished = []
+        listFromAPI = []
+        listPagedSkip = 0
         getCurrentRides()
+    }
+    
+    func getURL(skip:Int) -> String {
+        var eventsUrl = "https://api.wildapricot.org/v2/accounts/$id/events"
+        let formatter = DateFormatter()
+        let startDate = Calendar.current.date(byAdding: .day, value: -4, to: Date())!
+        
+        ///Got to ensure we load all the session templates
+        formatter.dateFormat = "yyyy-01-01"
+        //formatter.dateFormat = "yyyy-MM-dd"
+        let startDateStr = formatter.string(from: startDate)
+        eventsUrl = eventsUrl + "?%24filter="
+        eventsUrl += "StartDate%20gt%20\(startDateStr)"
+        
+        let maxPageSize = 100 ///WA imposed max page size
+        eventsUrl = eventsUrl + "&%24top=\(maxPageSize)&%24skip=\(skip)"
+        
+        print("=========", eventsUrl)
+        return eventsUrl
     }
     
     func getCurrentRides() {
         DispatchQueue.global(qos: .userInitiated).async {
             self.errMsg = nil
             Messages.instance.sendMessage(msg: "Start downloaded of club rides")
-            var eventsUrl = "https://api.wildapricot.org/v2/accounts/$id/events"
-            let formatter = DateFormatter()
-            let startDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())!
-            formatter.dateFormat = "yyyy-01-01"
-            let startDateStr = formatter.string(from: startDate)
-            eventsUrl = eventsUrl + "?%24filter=StartDate%20gt%20\(startDateStr)"
-            self.api.apiCall(context: "Load rides", url: eventsUrl, username:nil, password:nil, completion: self.loadRides, fail: self.loadRidesFailed)
+            let eventsUrl = self.getURL(skip: 0)
+            self.api.apiCall(context: "Load rides", url: eventsUrl, username:nil, password:nil,
+                             completion: self.loadRides,
+                             fail: self.loadRidesFailed)
         }
     }
     
@@ -59,10 +79,12 @@ class ClubRides : ObservableObject {
     }
 
     func loadRides(rawData: Data) {
-        var rideList = [ClubRide]()
+        var ridesThisPage = [ClubRide]()
+        var ridePageCount = 0
         if let events = try! JSONSerialization.jsonObject(with: rawData, options: []) as? [String: Any] {
             for (_, val) in events {
                 let rides = val as! NSArray
+                ridePageCount = rides.count
                 for rideData in rides {
                     let rideDict = rideData as! NSDictionary
                     let ride = ClubRide(id: "", name: "")
@@ -107,38 +129,42 @@ class ClubRides : ObservableObject {
                             session.name = ride.name
                             session.id = ride.id + "_" + String(sessionNum)
                             session.sessionId = String(sessionNum)
-                            rideList.append(session)
+                            ridesThisPage.append(session)
                             sessionNum += 1
                         }
                     }
                     else {
-                        rideList.append(ride)
+                        ridesThisPage.append(ride)
                     }
                 }
             }
         }
         
-        var filteredRides:[ClubRide] = []
-        for ride in rideList {
+        //self.listPaged = []
+        for ride in ridesThisPage {
             if ride.nearTerm()  {
                 ride.setLevels()
-                filteredRides.append(ride)
+                self.listFromAPI.append(ride)
             }
         }
-
-        let sortedRides = filteredRides.sorted(by: {
-            $0.dateTime < $1.dateTime
-        })
-        
-//        for ride in sortedRides {
-//            if ride.name.contains("Mooch") {
-//                print(ride.dateTime, ride.name)
-//            }
-//        }
-        
-        DispatchQueue.main.async {
-            self.list.append(contentsOf: sortedRides)
-            Messages.instance.sendMessage(msg: "Downloaded \(self.list.count) current club rides")
+       
+        if ridePageCount > 0 {
+            ///get the next page of rides
+            self.listPagedSkip += ridePageCount
+            let eventsUrl = self.getURL(skip: listPagedSkip)
+            self.api.apiCall(context: "Load rides", url: eventsUrl, username:nil, password:nil,
+                             completion: self.loadRides,
+                             fail: self.loadRidesFailed)
+        }
+        else {
+            DispatchQueue.main.async {
+                let sortedRides = self.listFromAPI.sorted(by: {
+                    $0.dateTime < $1.dateTime
+                })
+                print("========= total rides", sortedRides.count)
+                self.listPublished.append(contentsOf: sortedRides)
+                Messages.instance.sendMessage(msg: "Downloaded \(self.listPublished.count) current club rides")
+            }
         }
     }
 }

@@ -357,22 +357,30 @@ struct CurrentRideView: View {
                                 .foregroundColor(Color.red)
                         }
                         else {
-                            if rides.list.count == 0 {
-                                Text("Loading current rides...")
+                            if rides.listPublished.count == 0 {
+                                Text("Loading current rides ...")
                             }
                             else {
+
                                 Button("Select a Ride") {
                                     activeSheet = .selectRide
                                 }
                                 .font(.title2)
+                                .padding()
+                                .background(Color.gray.opacity(0.2)) // muted grey background
+                                .cornerRadius(10) // rounded corners
                             }
                         }
                         Spacer()
                     }
                 }
                 else {
-                    Text(signedInRiders.rideData.ride?.name ?? "").padding(.horizontal)
-                    Text("")
+                    Text(signedInRiders.rideData.ride?.name ?? "")
+                        .font(.title2)
+                        .padding(.horizontal)
+                        .background(Color.gray.opacity(0.2)) // muted grey background
+                        .cornerRadius(8) // rounded corners
+                    //Text("")
                     Button("Select Ride Template") {
                         if !SignedInRiders.instance.hasRidersBesideLeader() {
                             activeSheet = .selectTemplate
@@ -381,6 +389,7 @@ struct CurrentRideView: View {
                             confirmAddTemplate = true
                         }
                     }
+                    .padding(8)
                     .disabled(rideTemplates.list.count == 0)
                     .alert(isPresented:$confirmAddTemplate) {
                         Alert(
@@ -392,14 +401,17 @@ struct CurrentRideView: View {
                             secondaryButton: .cancel()
                         )
                     }
+
                     if SignedInRiders.instance.getCount() > 0 && SignedInRiders.instance.selectedCount() < SignedInRiders.instance.getCount() {
                         Button("Remove Unselected Riders") {
                             SignedInRiders.instance.removeUnselected()
                         }
+                        .padding(8)
                     }
-                    Button("Clear Ride Sheet and Start New Ride") {
+                    Button("Clear Ride Sheet") {
                         confirmClean = true
                     }
+                    .padding(8)
                     .alert(isPresented:$confirmClean) {
                         Alert(
                             title: Text("Clear the ride sheet and start a new ride?"),
@@ -548,8 +560,8 @@ struct CurrentRideView: View {
                 let rideName = SignedInRiders.instance.rideData.ride!.rideNameNoLevels()
                 if MFMailComposeViewController.canSendMail() {
                     SendMailView(isShowing: $emailShowing, result: $emailResult,
-                                 //messageRecipient:"stats@westernwheelers.org",
-                                 messageRecipient:"davidmurphy1088@gmail.com",
+                                 messageRecipient:"stats@westernwheelers.org", 
+                                 //messageRecipient:"davidmurphy1088@gmail.com",
                                  messageSubject: "WW Ride Sheet,\(rideName),\(rideDate)",
                                  messageContent: msg)
                 }
@@ -601,7 +613,6 @@ struct MainView: View {
                 .tabItem {
                     Label("Ride", systemImage: "bicycle.circle.fill")
                 }
-                
                 TemplatesView()
                 .tabItem {
                     Label("Templates", systemImage: "list.bullet.rectangle")
