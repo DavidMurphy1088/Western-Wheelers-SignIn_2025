@@ -111,9 +111,9 @@ struct RidersView: View {
                     }
                 }
             }
-            .padding()
-            .border(riderList.list.count == 0 ? Color.white : Color.gray)
-            .padding()
+//            .padding()
+//            .border(riderList.list.count == 0 ? Color.white : Color.gray)
+//            .padding()
         }
      }
 }
@@ -341,16 +341,22 @@ struct CurrentRideView: View {
                 if signedInRiders.rideData.ride == nil {
                     VStack {
                         Spacer()
-                        Text("Western Wheelers").font(.title2)
-                        Text("Ride Sign Up").font(.title2)
-                        Image("Bike_Wheel")
-                            .resizable()
-                            .onAppear {
-                                self.animateIcon.toggle()  //cause the animation to start
-                            }
-                            .rotationEffect(Angle(degrees: self.animateIcon ? 2160: 0)) //, anchor: UnitPoint(x: 1.0, y: 1.0))
-                            .animation(Animation.linear(duration: 30).repeatForever(autoreverses: false))
-                            .frame(width: 200, height: 200, alignment: .center)
+                        VStack {
+                            Text("Western Wheelers").font(.title2)
+                            Text("Ride Sign Up").font(.title2)
+                            Image("Bike_Wheel")
+                                .resizable()
+                                .onAppear {
+                                    self.animateIcon.toggle()  //cause the animation to start
+                                }
+                                .rotationEffect(Angle(degrees: self.animateIcon ? 2160: 0)) //, anchor: UnitPoint(x: 1.0, y: 1.0))
+                                .animation(Animation.linear(duration: 30).repeatForever(autoreverses: false))
+                                .frame(width: 200, height: 200, alignment: .center)
+                                .padding()
+                        }
+                        .padding()
+                        .borderedBackground()
+                        .padding()
                         Spacer()
                         if let errMsg = rides.errMsg {
                             Text("Cannot load rides, \(errMsg)\nPlease verify internet connectivity")
@@ -361,14 +367,13 @@ struct CurrentRideView: View {
                                 Text("Loading current rides ...")
                             }
                             else {
-
                                 Button("Select a Ride") {
                                     activeSheet = .selectRide
                                 }
                                 .font(.title2)
                                 .padding()
-                                .background(Color.gray.opacity(0.2)) // muted grey background
-                                .cornerRadius(10) // rounded corners
+                                .borderedBackground()
+                                .padding()
                             }
                         }
                         Spacer()
@@ -376,11 +381,9 @@ struct CurrentRideView: View {
                 }
                 else {
                     Text(signedInRiders.rideData.ride?.name ?? "")
-                        .font(.title2)
-                        .padding(.horizontal)
-                        .background(Color.gray.opacity(0.2)) // muted grey background
-                        .cornerRadius(8) // rounded corners
-                    //Text("")
+                        .padding()
+                        .borderedBackground()
+
                     Button("Select Ride Template") {
                         if !SignedInRiders.instance.hasRidersBesideLeader() {
                             activeSheet = .selectTemplate
@@ -401,28 +404,42 @@ struct CurrentRideView: View {
                             secondaryButton: .cancel()
                         )
                     }
-
-                    if SignedInRiders.instance.getCount() > 0 && SignedInRiders.instance.selectedCount() < SignedInRiders.instance.getCount() {
-                        Button("Remove Unselected Riders") {
-                            SignedInRiders.instance.removeUnselected()
+                    HStack {
+                        if SignedInRiders.instance.getCount() > 0 && SignedInRiders.instance.selectedCount() < SignedInRiders.instance.getCount() {
+                            Button("Remove Unselected Riders") {
+                                SignedInRiders.instance.removeUnselected()
+                            }
+                            .padding(8)
+                        }
+                        Button("Clear Ride Sheet") {
+                            confirmClean = true
                         }
                         .padding(8)
+                        .alert(isPresented:$confirmClean) {
+                            Alert(
+                                title: Text("Clear the ride sheet and start a new ride?"),
+                                primaryButton: .destructive(Text("Clear")) {
+                                    signedInRiders.clearData(clearRide: true)
+                                },
+                                secondaryButton: .cancel()
+                            )
+                        }
                     }
-                    Button("Clear Ride Sheet") {
-                        confirmClean = true
+                    if SignedInRiders.instance.list.count > 0 {
+                        RidersView(selectRider: selectRider, riderList: SignedInRiders.instance, deleteNeedsConfirm: false, scrollToRiderId: $scrollToRiderId, showSelect: true)
+                            .padding()
+                            .borderedBackground()
+                            .padding()
                     }
-                    .padding(8)
-                    .alert(isPresented:$confirmClean) {
-                        Alert(
-                            title: Text("Clear the ride sheet and start a new ride?"),
-                            primaryButton: .destructive(Text("Clear")) {
-                                signedInRiders.clearData(clearRide: true)
-                            },
-                            secondaryButton: .cancel()
-                        )
+                    else {
+                        VStack {
+                            Text("").padding()
+                            Text("").padding()
+                            Text("").padding()
+                        }
+                        .padding()
+                        
                     }
-
-                    RidersView(selectRider: selectRider, riderList: SignedInRiders.instance, deleteNeedsConfirm: false, scrollToRiderId: $scrollToRiderId, showSelect: true)
                     
                     HStack {
                         Spacer()
@@ -493,11 +510,6 @@ struct CurrentRideView: View {
                                     secondaryButton: .cancel()
                                 )
                             }
-//                            Button(action: {
-//                                riderCommunicate(riders: signedInRiders.getList(), way: CommunicationType.text)
-//                            }, label: {
-//                                Text("Text All Riders")
-//                            })
 
                         }
 
@@ -516,7 +528,7 @@ struct CurrentRideView: View {
                 }
 
                 Spacer()
-                Text("Signed up \(SignedInRiders.instance.selectedCount()) riders").font(.footnote)
+                Text("Signed up \(SignedInRiders.instance.selectedCount()) riders").font(.title2)
                 Spacer()
                 Button(action: {
                     self.showInfo = true
@@ -605,38 +617,50 @@ struct CurrentRideView: View {
 struct MainView: View {
     @Environment(\.scenePhase) var scenePhase
     @ObservedObject var verifiedMember:VerifiedMember = VerifiedMember.instance
-
+    @ObservedObject var userMessages = Messages.instance
+    
     var body: some View {
         if verifiedMember.username != nil {
-            TabView {
-                CurrentRideView()
-                .tabItem {
-                    Label("Ride", systemImage: "bicycle.circle.fill")
+            ZStack {
+                TabView {
+                    CurrentRideView()
+                        .tabItem {
+                            Label("Ride", systemImage: "bicycle.circle.fill")
+                        }
+                    TemplatesView()
+                        .tabItem {
+                            Label("Templates", systemImage: "list.bullet.rectangle")
+                        }
+                    MembersView()
+                        .tabItem {
+                            Label("Members", systemImage: "person.3.fill")
+                        }
                 }
-                TemplatesView()
-                .tabItem {
-                    Label("Templates", systemImage: "list.bullet.rectangle")
+                .onChange(of: scenePhase) { newScenePhase in
+                    switch newScenePhase {
+                    case .active:
+                        break
+                    case .inactive:
+                        VerifiedMember.instance.save()
+                        SignedInRiders.instance.save()
+                        AppUserDefaults.instance.save()
+                    case .background:
+                        VerifiedMember.instance.save()
+                        SignedInRiders.instance.save()
+                        AppUserDefaults.instance.save()
+                    @unknown default:
+                        break
+                    }
                 }
-                MembersView()
-                .tabItem {
-                    Label("Members", systemImage: "person.3.fill")
+                
+                if let msg = userMessages.userMessage {
+                    VStack {
+                        Text(msg)
+                            .padding()
+                            .borderedBackground(color: Color(red: 0.9, green: 1.0, blue: 0.9), opacity: 1.0)
+                        Spacer()
+                    }
                 }
-            }
-            .onChange(of: scenePhase) { newScenePhase in
-              switch newScenePhase {
-              case .active:
-                break
-              case .inactive:
-                VerifiedMember.instance.save()
-                SignedInRiders.instance.save()
-                AppUserDefaults.instance.save()
-              case .background:
-                VerifiedMember.instance.save()
-                SignedInRiders.instance.save()
-                AppUserDefaults.instance.save()
-              @unknown default:
-                break
-              }
             }
         }
         else {
@@ -648,5 +672,27 @@ struct MainView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+struct BorderedBackground: ViewModifier {
+    let color:Color
+    let opacity: Double
+    
+    func body(content: Content) -> some View {
+        content
+            .background(color.opacity(opacity))
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.black, lineWidth: 1)
+            )
+    }
+}
+
+// Create an extension for easy use
+extension View {
+    func borderedBackground(color:Color = Color.gray, opacity:Double = 0.2) -> some View {
+        modifier(BorderedBackground(color: color, opacity: opacity))
     }
 }

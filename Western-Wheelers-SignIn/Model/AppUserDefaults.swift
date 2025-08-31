@@ -33,7 +33,7 @@ class AppUserDefaults : ObservableObject {
                 let decoder = JSONDecoder()
                 if let decoded = try? decoder.decode(Bool.self, from: json as Data) {
                     promptAddRiderToTemplate = decoded
-                    Messages.instance.sendMessage(msg: "Restored user defaults")
+                    Messages.instance.sendMessage(msg: "Restored user defaults", publish: false)
                 }
             }
             catch {

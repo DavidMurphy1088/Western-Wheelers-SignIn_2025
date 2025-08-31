@@ -5,11 +5,10 @@ target 'Western-Wheelers-SignIn' do
     # Comment the next line if you don't want to use dynamic frameworks
     use_frameworks!
 
-    pod 'GoogleAPIClientForREST/Sheets'
-    pod 'GoogleAPIClientForREST/Drive'
-    # pod 'GoogleSignIn', '~> 5.0'
-    pod 'GoogleSignIn', '~> 6.0.0'
-    pod 'Alamofire'
+    pod 'GoogleAPIClientForREST/Sheets', '~> 5.0'
+    pod 'GoogleAPIClientForREST/Drive', '~> 5.0'
+    pod 'GoogleSignIn', '~> 9.0'
+    pod 'Alamofire', '~> 5.9'
     pod 'GoogleAPIClientForREST'
 
     #target 'Western-Wheelers-SignInUITests' do

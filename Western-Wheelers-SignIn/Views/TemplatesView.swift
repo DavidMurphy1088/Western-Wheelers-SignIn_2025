@@ -96,7 +96,8 @@ struct TemplatesView: View {
                     Text("")
                 }
             }
-            .border(Color.gray)
+            .padding()
+            .borderedBackground()
             .padding()
             Spacer()
             Button(action: {

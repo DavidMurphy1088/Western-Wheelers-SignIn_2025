@@ -35,7 +35,7 @@ class ClubMembers : ObservableObject {
                 $0.getDisplayName().uppercased() < $1.getDisplayName().uppercased()
             }
             let msg = "Downloaded \(self.clubList.count) club members in \(pageCount) download pages"
-            Messages.instance.sendMessage(msg: msg)
+            Messages.instance.sendMessage(msg: msg, publish: false)
             if downloadList.count > 0 {
                 self.updateList(updList: downloadList)
             }
@@ -49,7 +49,7 @@ class ClubMembers : ObservableObject {
                 if let list = try? decoder.decode([Rider].self, from: json as Data) {
                     DispatchQueue.main.async {
                         self.clubList = list
-                        Messages.instance.sendMessage(msg: "Restored \(list.count) club members from local")
+                        Messages.instance.sendMessage(msg: "Restored \(list.count) club members from local", publish: false)
                     }
                 }
                 else {
@@ -62,7 +62,7 @@ class ClubMembers : ObservableObject {
             }
         }
         else {
-            Messages.instance.sendMessage(msg: "Please wait for the club member list to download")
+            Messages.instance.sendMessage(msg: "Please wait for the club member list to download", publish: false)
         }
     }
     

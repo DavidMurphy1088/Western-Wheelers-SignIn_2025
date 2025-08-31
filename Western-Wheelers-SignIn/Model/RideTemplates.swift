@@ -19,22 +19,26 @@ class RideTemplates : ObservableObject {
         operation.qualityOfService = .userInteractive
         
         operation.recordFetchedBlock = { [self]record in
-            list.append(RideTemplate(record: record))
+            DispatchQueue.main.async {
+                self.list.append(RideTemplate(record: record))
+            }
         }
         operation.queryCompletionBlock = {(cursor, error) in //{ [unowned self] (cursor, error) in
             if error != nil {
                 Messages.instance.reportError(context: "RideTemplates load", error: error)
             }
             else {
-                self.list.sort {
-                    $0.name < $1.name
-                }
-                for template in self.list {
-                    template.list.sort {
-                        $0.getDisplayName() < $1.getDisplayName()
+                DispatchQueue.main.async {
+                    self.list.sort {
+                        $0.name < $1.name
                     }
+                    for template in self.list {
+                        template.list.sort {
+                            $0.getDisplayName() < $1.getDisplayName()
+                        }
+                    }
+                    Messages.instance.sendMessage(msg: "Loaded \(self.list.count) templates", publish: false)
                 }
-                Messages.instance.sendMessage(msg: "Loaded \(self.list.count) templates")
             }
         }
         RideTemplates.container.publicCloudDatabase.add(operation)

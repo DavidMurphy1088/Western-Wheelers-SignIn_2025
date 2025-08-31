@@ -6,14 +6,23 @@ class Messages : ObservableObject {
     static public let instance = Messages()
     @Published public var messages:[String] = []
     @Published public var errMessage:String? = nil
-
-    func sendMessage(msg: String) {
+    @Published public var userMessage:String? = nil
+    
+    func sendMessage(msg: String, publish:Bool) {
         DispatchQueue.main.async {
-            print("MESSAGE", msg)
+            print("➡️ MESSAGE", msg, publish ? "\t\t▶️ Published" : "")
             self.messages.append(msg)
+            if publish {
+                self.userMessage = msg
+            }
         }
     }
-    
+    func clearUserMessage() {
+        DispatchQueue.main.async {
+            self.userMessage = nil
+        }
+    }
+
     func getMessages() -> String {
         var msg = ""
         for m in messages {
@@ -45,7 +54,7 @@ class Messages : ObservableObject {
                 message += " " + err.localizedDescription
             }
             self.errMessage = context + " " + message
-            Messages.instance.sendMessage(msg: "Error:\(String(describing: self.errMessage))")
+            Messages.instance.sendMessage(msg: "Error:\(String(describing: self.errMessage))", publish: true)
         }
     }
     

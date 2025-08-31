@@ -6,12 +6,15 @@ class ClubRides : ObservableObject {
     private let api = WAApi()
     @Published public var listPublished:[ClubRide] = []
     @Published public var errMsg:String? = nil
-    var listFromAPI:[ClubRide] = []
+    var pagedListFromAPI:[ClubRide] = []
     var listPagedSkip = 0
+    let maxPageSize = 100 ///WA imposed max page size
+    var startLoadTime = Date()
+    var loadedFromLocal = false
     
     private init() {
         listPublished = []
-        listFromAPI = []
+        pagedListFromAPI = []
         listPagedSkip = 0
         getCurrentRides()
     }
@@ -27,21 +30,27 @@ class ClubRides : ObservableObject {
         let startDateStr = formatter.string(from: startDate)
         eventsUrl = eventsUrl + "?%24filter="
         eventsUrl += "StartDate%20gt%20\(startDateStr)"
+        eventsUrl = eventsUrl + "&%24top=\(self.maxPageSize)&%24skip=\(skip)"
         
-        let maxPageSize = 100 ///WA imposed max page size
-        eventsUrl = eventsUrl + "&%24top=\(maxPageSize)&%24skip=\(skip)"
-        
-        print("=========", eventsUrl)
+        //print("=========", eventsUrl)
         return eventsUrl
     }
     
     func getCurrentRides() {
         DispatchQueue.global(qos: .userInitiated).async {
             self.errMsg = nil
-            Messages.instance.sendMessage(msg: "Start downloaded of club rides")
+            self.loadedFromLocal = false
+            if let cachedRides = self.loadFromLocal() {
+                self.setRidesList(rides: cachedRides, saveToLocal: false, clearUserMsg: false)
+                self.loadedFromLocal = true
+                
+            }
+            let msg = self.loadedFromLocal ? "Updating club ride list..." : "Starting download of club rides..."
+            Messages.instance.sendMessage(msg: msg, publish: true)
             let eventsUrl = self.getURL(skip: 0)
+            self.startLoadTime = Date()
             self.api.apiCall(context: "Load rides", url: eventsUrl, username:nil, password:nil,
-                             completion: self.loadRides,
+                             completion: self.loadPageOfRides,
                              fail: self.loadRidesFailed)
         }
     }
@@ -73,12 +82,37 @@ class ClubRides : ObservableObject {
         }
     }
     
+    func setRidesList(rides:[ClubRide], saveToLocal:Bool, clearUserMsg:Bool) {
+        DispatchQueue.main.async {
+            let sortedRides = rides.sorted(by: {
+                $0.dateTime < $1.dateTime
+            })
+            if saveToLocal {
+                self.saveToLocal(rides: sortedRides)
+            }
+            self.listPublished = []
+            for ride in sortedRides {
+                if ride.nearTerm() {
+                    self.listPublished.append(ride)
+                }
+            }
+            
+            let timeInterval = Date().timeIntervalSince(self.startLoadTime)
+            let secs = String(format: "%.2f", timeInterval)
+            let msg = "SetRidesList, total rides \(self.listPublished.count), loaded in \(secs) secs"
+            Messages.instance.sendMessage(msg: msg, publish: false)
+            if clearUserMsg {
+                Messages.instance.clearUserMessage()
+            }
+        }
+    }
+    
     func loadRidesFailed(msg:String) {
         self.errMsg = msg
         Messages.instance.reportError(context: "Load Rides", msg: "cannot load rides after")
     }
 
-    func loadRides(rawData: Data) {
+    func loadPageOfRides(rawData: Data) {
         var ridesThisPage = [ClubRide]()
         var ridePageCount = 0
         if let events = try! JSONSerialization.jsonObject(with: rawData, options: []) as? [String: Any] {
@@ -140,31 +174,54 @@ class ClubRides : ObservableObject {
             }
         }
         
-        //self.listPaged = []
         for ride in ridesThisPage {
-            if ride.nearTerm()  {
+            //if ride.nearTerm()  {
                 ride.setLevels()
-                self.listFromAPI.append(ride)
-            }
+                self.pagedListFromAPI.append(ride)
+            //}
         }
        
-        if ridePageCount > 0 {
+        if ridePageCount == self.maxPageSize {
             ///get the next page of rides
             self.listPagedSkip += ridePageCount
             let eventsUrl = self.getURL(skip: listPagedSkip)
+            if !loadedFromLocal {
+                Messages.instance.sendMessage(
+                    msg: "Downloaded \(self.pagedListFromAPI.count) rides, continuing...", publish: true)
+            }
             self.api.apiCall(context: "Load rides", url: eventsUrl, username:nil, password:nil,
-                             completion: self.loadRides,
+                             completion: self.loadPageOfRides,
                              fail: self.loadRidesFailed)
         }
         else {
-            DispatchQueue.main.async {
-                let sortedRides = self.listFromAPI.sorted(by: {
-                    $0.dateTime < $1.dateTime
-                })
-                print("========= total rides", sortedRides.count)
-                self.listPublished.append(contentsOf: sortedRides)
-                Messages.instance.sendMessage(msg: "Downloaded \(self.listPublished.count) current club rides")
+            self.setRidesList(rides: self.pagedListFromAPI, saveToLocal: true, clearUserMsg: true)
+        }
+    }
+    
+    func saveToLocal(rides: [ClubRide]) {
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let data = try encoder.encode(rides)
+            UserDefaults.standard.set(data, forKey: "rides")
+            Messages.instance.sendMessage(msg: "Saved to local cache \(rides.count) rides, size:\(data.count)", publish: false)
+        } catch {
+            Messages.instance.reportError(context: "Save rides to local cache", msg: error.localizedDescription)
+        }
+    }
+
+    func loadFromLocal() -> [ClubRide]? {
+        if let data = UserDefaults.standard.data(forKey: "rides") {
+            do {
+                let decoder = JSONDecoder()
+                let rides = try decoder.decode([ClubRide].self, from: data)
+                Messages.instance.sendMessage(msg: "Loaded from local cache \(rides.count) rides, size:\(data.count)", publish: false)
+                return rides
+            }
+            catch {
+                Messages.instance.reportError(context: "Load rides from local cache", msg: error.localizedDescription)
             }
         }
+        return nil
     }
 }

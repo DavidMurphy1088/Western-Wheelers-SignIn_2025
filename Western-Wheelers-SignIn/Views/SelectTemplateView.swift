@@ -32,7 +32,8 @@ struct SelectTemplateView : View {
                     }
                 }
             }
-            .border(Color.black)
+            .padding()
+            .borderedBackground()
             .padding()
             Button(action: {
                 self.presentationMode.wrappedValue.dismiss()

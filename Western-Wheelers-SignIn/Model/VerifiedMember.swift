@@ -60,7 +60,7 @@ class VerifiedMember : ObservableObject {
                 let decoder = JSONDecoder()
                 if let decoded = try? decoder.decode(String.self, from: json as Data) {
                     username = decoded
-                    Messages.instance.sendMessage(msg: "Restored \(self.username ?? "") verification from local")
+                    Messages.instance.sendMessage(msg: "Restored \(self.username ?? "") verification from local", publish: false)
                 }
             }
             catch {

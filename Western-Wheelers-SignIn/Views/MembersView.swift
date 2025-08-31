@@ -46,8 +46,10 @@ struct MembersView: View {
                     }
                 }
             }
-            .border(Color.black)
             .padding()
+            .borderedBackground()
+            .padding()
+            
             Spacer()
         }
     }

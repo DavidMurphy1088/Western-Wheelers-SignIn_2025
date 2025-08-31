@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Sheets.
 // Documentation:
-//   https://developers.google.com/sheets/
+//   https://developers.google.com/workspace/sheets/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -33,6 +33,8 @@
 @class GTLRSheets_AddSheetResponse;
 @class GTLRSheets_AddSlicerRequest;
 @class GTLRSheets_AddSlicerResponse;
+@class GTLRSheets_AddTableRequest;
+@class GTLRSheets_AddTableResponse;
 @class GTLRSheets_AppendCellsRequest;
 @class GTLRSheets_AppendDimensionRequest;
 @class GTLRSheets_AutoFillRequest;
@@ -72,6 +74,8 @@
 @class GTLRSheets_ChartHistogramRule;
 @class GTLRSheets_ChartSourceRange;
 @class GTLRSheets_ChartSpec;
+@class GTLRSheets_Chip;
+@class GTLRSheets_ChipRun;
 @class GTLRSheets_ClearBasicFilterRequest;
 @class GTLRSheets_Color;
 @class GTLRSheets_ColorStyle;
@@ -120,6 +124,7 @@
 @class GTLRSheets_DeleteProtectedRangeRequest;
 @class GTLRSheets_DeleteRangeRequest;
 @class GTLRSheets_DeleteSheetRequest;
+@class GTLRSheets_DeleteTableRequest;
 @class GTLRSheets_DeveloperMetadata;
 @class GTLRSheets_DeveloperMetadataLocation;
 @class GTLRSheets_DeveloperMetadataLookup;
@@ -158,6 +163,7 @@
 @class GTLRSheets_KeyValueFormat;
 @class GTLRSheets_LineStyle;
 @class GTLRSheets_Link;
+@class GTLRSheets_LookerDataSourceSpec;
 @class GTLRSheets_ManualRule;
 @class GTLRSheets_ManualRuleGroup;
 @class GTLRSheets_MatchedDeveloperMetadata;
@@ -170,6 +176,7 @@
 @class GTLRSheets_OverlayPosition;
 @class GTLRSheets_Padding;
 @class GTLRSheets_PasteDataRequest;
+@class GTLRSheets_PersonProperties;
 @class GTLRSheets_PieChartSpec;
 @class GTLRSheets_PivotFilterCriteria;
 @class GTLRSheets_PivotFilterSpec;
@@ -191,6 +198,7 @@
 @class GTLRSheets_RepeatCellRequest;
 @class GTLRSheets_Request;
 @class GTLRSheets_Response;
+@class GTLRSheets_RichLinkProperties;
 @class GTLRSheets_RowData;
 @class GTLRSheets_ScorecardChartSpec;
 @class GTLRSheets_SetBasicFilterRequest;
@@ -205,6 +213,10 @@
 @class GTLRSheets_Spreadsheet;
 @class GTLRSheets_SpreadsheetProperties;
 @class GTLRSheets_SpreadsheetTheme;
+@class GTLRSheets_Table;
+@class GTLRSheets_TableColumnDataValidationRule;
+@class GTLRSheets_TableColumnProperties;
+@class GTLRSheets_TableRowsProperties;
 @class GTLRSheets_TextFormat;
 @class GTLRSheets_TextFormatRun;
 @class GTLRSheets_TextPosition;
@@ -238,6 +250,7 @@
 @class GTLRSheets_UpdateSheetPropertiesRequest;
 @class GTLRSheets_UpdateSlicerSpecRequest;
 @class GTLRSheets_UpdateSpreadsheetPropertiesRequest;
+@class GTLRSheets_UpdateTableRequest;
 @class GTLRSheets_UpdateValuesByDataFilterResponse;
 @class GTLRSheets_UpdateValuesResponse;
 @class GTLRSheets_ValueRange;
@@ -625,7 +638,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -681,7 +694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequ
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -762,7 +775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_Response
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -2814,6 +2827,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNormal
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteValues;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_PersonProperties.displayFormat
+
+/**
+ *  Default display format.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_Default;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "DISPLAY_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_DisplayFormatUnspecified;
+/**
+ *  Email display format.
+ *
+ *  Value: "EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_Email;
+/**
+ *  Last name, first name display format.
+ *
+ *  Value: "LAST_NAME_COMMA_FIRST_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PersonProperties_DisplayFormat_LastNameCommaFirstName;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_PieChartSpec.legendPosition
 
 /**
@@ -3348,6 +3389,100 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_
 FOUNDATION_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_RecalculationIntervalUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_TableColumnProperties.columnType
+
+/**
+ *  The boolean column type.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Boolean;
+/**
+ *  An unspecified column type.
+ *
+ *  Value: "COLUMN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_ColumnTypeUnspecified;
+/**
+ *  The currency column type.
+ *
+ *  Value: "CURRENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Currency;
+/**
+ *  The date column type.
+ *
+ *  Value: "DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Date;
+/**
+ *  The date and time column type.
+ *
+ *  Value: "DATE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_DateTime;
+/**
+ *  The number column type.
+ *
+ *  Value: "DOUBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Double;
+/**
+ *  The dropdown column type.
+ *
+ *  Value: "DROPDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Dropdown;
+/**
+ *  The files chip column type
+ *
+ *  Value: "FILES_CHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_FilesChip;
+/**
+ *  The finance chip column type
+ *
+ *  Value: "FINANCE_CHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_FinanceChip;
+/**
+ *  The people chip column type
+ *
+ *  Value: "PEOPLE_CHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_PeopleChip;
+/**
+ *  The percent column type.
+ *
+ *  Value: "PERCENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Percent;
+/**
+ *  The place chip column type
+ *
+ *  Value: "PLACE_CHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_PlaceChip;
+/**
+ *  The ratings chip column type
+ *
+ *  Value: "RATINGS_CHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_RatingsChip;
+/**
+ *  The text column type.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Text;
+/**
+ *  The time column type.
+ *
+ *  Value: "TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TableColumnProperties_ColumnType_Time;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_TextPosition.horizontalAlignment
 
 /**
@@ -3606,7 +3741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Adds a data source. After the data source is added successfully, an
  *  associated DATA_SOURCE sheet is created and an execution is triggered to
  *  refresh the sheet to read data from the data source. The request requires an
- *  additional `bigquery.readonly` OAuth scope.
+ *  additional `bigquery.readonly` OAuth scope if you are adding a BigQuery data
+ *  source.
  */
 @interface GTLRSheets_AddDataSourceRequest : GTLRObject
 
@@ -3800,6 +3936,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
+ *  Adds a new table to the spreadsheet.
+ */
+@interface GTLRSheets_AddTableRequest : GTLRObject
+
+/** Required. The table to add. */
+@property(nonatomic, strong, nullable) GTLRSheets_Table *table;
+
+@end
+
+
+/**
+ *  The result of adding a table.
+ */
+@interface GTLRSheets_AddTableResponse : GTLRObject
+
+/** Output only. The table that was added. */
+@property(nonatomic, strong, nullable) GTLRSheets_Table *table;
+
+@end
+
+
+/**
  *  Adds new cells after the last row with data in a sheet, inserting new rows
  *  into the sheet if necessary.
  */
@@ -3823,6 +3981,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sheetId;
+
+/**
+ *  The ID of the table to append data to. The data will be only appended to the
+ *  table body. This field also takes precedence over the `sheet_id` field.
+ */
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 @end
 
@@ -3931,11 +4095,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_BandedRange : GTLRObject
 
 /**
- *  The ID of the banded range.
+ *  The ID of the banded range. If unset, refer to banded_range_reference.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bandedRangeId;
+
+/**
+ *  Output only. The reference of the banded range, used to identify the ID that
+ *  is not supported by the banded_range_id.
+ */
+@property(nonatomic, copy, nullable) NSString *bandedRangeReference;
 
 /**
  *  Properties for column bands. These properties are applied on a column-
@@ -4439,6 +4609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
 
+/**
+ *  The table this filter is backed by, if any. When writing, only one of range
+ *  or table_id may be set.
+ */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
 @end
 
 
@@ -4511,9 +4687,10 @@ GTLR_DEPRECATED
 
 /**
  *  The ranges that were cleared, in [A1
- *  notation](/sheets/api/guides/concepts#cell). If the requests are for an
- *  unbounded range or a ranger larger than the bounds of the sheet, this is the
- *  actual ranges that were cleared, bounded to the sheet's limits.
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
+ *  If the requests are for an unbounded range or a ranger larger than the
+ *  bounds of the sheet, this is the actual ranges that were cleared, bounded to
+ *  the sheet's limits.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
 
@@ -4530,7 +4707,7 @@ GTLR_DEPRECATED
 
 /**
  *  The ranges to clear, in [A1 notation or R1C1
- *  notation](/sheets/api/guides/concepts#cell).
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
@@ -4624,7 +4801,7 @@ GTLR_DEPRECATED
  *        values as decimal values. This lets you perform arithmetic on them in
  *        formulas. For more information on interpreting date and time values,
  *        see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
@@ -4795,7 +4972,7 @@ GTLR_DEPRECATED
  *        values as decimal values. This lets you perform arithmetic on them in
  *        formulas. For more information on interpreting date and time values,
  *        see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
@@ -4931,7 +5108,7 @@ GTLR_DEPRECATED
  *        values as decimal values. This lets you perform arithmetic on them in
  *        formulas. For more information on interpreting date and time values,
  *        see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_UnformattedValue
  *        Values will be calculated, but not formatted in the reply. For
@@ -5412,7 +5589,9 @@ GTLR_DEPRECATED
 
 /**
  *  Cancels one or multiple refreshes of data source objects in the spreadsheet
- *  by the specified references.
+ *  by the specified references. The request requires an additional
+ *  `bigquery.readonly` OAuth scope if you are cancelling a refresh on a
+ *  BigQuery data source.
  */
 @interface GTLRSheets_CancelDataSourceRefreshRequest : GTLRObject
 
@@ -5552,6 +5731,17 @@ GTLR_DEPRECATED
  *  Data about a specific cell.
  */
 @interface GTLRSheets_CellData : GTLRObject
+
+/**
+ *  Optional. Runs of chips applied to subsections of the cell. Properties of a
+ *  run start at a specific index in the text and continue until the next run.
+ *  When reading, all chipped and non-chipped runs are included. Non-chipped
+ *  runs will have an empty Chip. When writing, only runs with chips are
+ *  included. Runs containing chips are of length 1 and are represented in the
+ *  user-entered text by an “\@” placeholder symbol. New runs will overwrite any
+ *  prior runs. Writing a new user_entered_value will erase previous runs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_ChipRun *> *chipRuns;
 
 /**
  *  Output only. Information about a data source formula on the cell. The field
@@ -6145,6 +6335,39 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The Smart Chip.
+ */
+@interface GTLRSheets_Chip : GTLRObject
+
+/** Properties of a linked person. */
+@property(nonatomic, strong, nullable) GTLRSheets_PersonProperties *personProperties;
+
+/** Properties of a rich link. */
+@property(nonatomic, strong, nullable) GTLRSheets_RichLinkProperties *richLinkProperties;
+
+@end
+
+
+/**
+ *  The run of a chip. The chip continues until the start index of the next run.
+ */
+@interface GTLRSheets_ChipRun : GTLRObject
+
+/** Optional. The chip of this run. */
+@property(nonatomic, strong, nullable) GTLRSheets_Chip *chip;
+
+/**
+ *  Required. The zero-based character index where this run starts, in UTF-16
+ *  code units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
  *  Clears the basic filter, if any exists on the sheet.
  */
 @interface GTLRSheets_ClearBasicFilterRequest : GTLRObject
@@ -6281,10 +6504,10 @@ GTLR_DEPRECATED
 
 /**
  *  RGB color. The
- *  [`alpha`](/sheets/api/reference/rest/v4/spreadsheets/other#Color.FIELDS.alpha)
+ *  [`alpha`](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets/other#Color.FIELDS.alpha)
  *  value in the
- *  [`Color`](/sheets/api/reference/rest/v4/spreadsheets/other#color) object
- *  isn't generally supported.
+ *  [`Color`](https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets/other#color)
+ *  object isn't generally supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Color *rgbColor;
 
@@ -7023,6 +7246,9 @@ GTLR_DEPRECATED
 /** A BigQueryDataSourceSpec. */
 @property(nonatomic, strong, nullable) GTLRSheets_BigQueryDataSourceSpec *bigQuery;
 
+/** A LookerDatasourceSpec. */
+@property(nonatomic, strong, nullable) GTLRSheets_LookerDataSourceSpec *looker;
+
 /** The parameters of the data source, used when querying the data source. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataSourceParameter *> *parameters;
 
@@ -7438,6 +7664,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Removes the table with the given ID from the spreadsheet.
+ */
+@interface GTLRSheets_DeleteTableRequest : GTLRObject
+
+/** The ID of the table to delete. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
  *  Developer metadata associated with a location or object in a spreadsheet.
  *  Developer metadata may be used to associate arbitrary data with various
  *  parts of a spreadsheet and will remain associated at those locations as they
@@ -7637,7 +7874,7 @@ GTLR_DEPRECATED
 /**
  *  Limits the selected developer metadata to that which has a matching
  *  DeveloperMetadata.visibility. If left unspecified, all developer metadata
- *  visibile to the requesting project is considered.
+ *  visible to the requesting project is considered.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_DeveloperMetadataLookup_Visibility_DeveloperMetadataVisibilityUnspecified
@@ -8104,13 +8341,13 @@ GTLR_DEPRECATED
 
 /**
  *  The named range this filter view is backed by, if any. When writing, only
- *  one of range or named_range_id may be set.
+ *  one of range or named_range_id or table_id may be set.
  */
 @property(nonatomic, copy, nullable) NSString *namedRangeId;
 
 /**
  *  The range this filter view covers. When writing, only one of range or
- *  named_range_id may be set.
+ *  named_range_id or table_id may be set.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
@@ -8119,6 +8356,12 @@ GTLR_DEPRECATED
  *  equal in the earlier specifications.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_SortSpec *> *sortSpecs;
+
+/**
+ *  The table this filter view is backed by, if any. When writing, only one of
+ *  range or named_range_id or table_id may be set.
+ */
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /** The name of the filter view. */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -8263,6 +8506,13 @@ GTLR_DEPRECATED
  *  spreadsheet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataFilter *> *dataFilters;
+
+/**
+ *  True if tables should be excluded in the banded ranges. False if not set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeTablesInBandedRanges;
 
 /**
  *  True if grid data should be returned. This parameter is ignored if a field
@@ -8652,7 +8902,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRSheets_InsertRangeRequest : GTLRObject
 
-/** The range to insert new cells into. */
+/**
+ *  The range to insert new cells into. The range is constrained to the current
+ *  sheet boundaries.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
 /**
@@ -8845,6 +9098,23 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The specification of a Looker data source.
+ */
+@interface GTLRSheets_LookerDataSourceSpec : GTLRObject
+
+/** Name of a Looker model explore. */
+@property(nonatomic, copy, nullable) NSString *explore;
+
+/** A Looker instance URL. */
+@property(nonatomic, copy, nullable) NSString *instanceUri;
+
+/** Name of a Looker model. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
  *  Allows you to manually organize the values in a source data column into
  *  buckets with names of your choosing. For example, a pivot table that
  *  aggregates population by state: +-------+-------------------+ | State | SUM
@@ -9002,8 +9272,9 @@ GTLR_DEPRECATED
 /**
  *  Pattern string used for formatting. If not set, a default pattern based on
  *  the user's locale will be used if necessary for the given type. See the
- *  [Date and Number Formats guide](/sheets/api/guides/formats) for more
- *  information about the supported patterns.
+ *  [Date and Number Formats
+ *  guide](https://developers.google.com/workspace/sheets/api/guides/formats)
+ *  for more information about the supported patterns.
  */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
@@ -9227,6 +9498,37 @@ GTLR_DEPRECATED
  *        ONLY without formats, formulas, or merges. (Value: "PASTE_VALUES")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Properties specific to a linked person.
+ */
+@interface GTLRSheets_PersonProperties : GTLRObject
+
+/**
+ *  Optional. The display format of the person chip. If not set, the default
+ *  display format is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_Default Default display
+ *        format. (Value: "DEFAULT")
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_DisplayFormatUnspecified
+ *        Default value, do not use. (Value: "DISPLAY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_Email Email display
+ *        format. (Value: "EMAIL")
+ *    @arg @c kGTLRSheets_PersonProperties_DisplayFormat_LastNameCommaFirstName
+ *        Last name, first name display format. (Value:
+ *        "LAST_NAME_COMMA_FIRST_NAME")
+ */
+@property(nonatomic, copy, nullable) NSString *displayFormat;
+
+/**
+ *  Required. The email address linked to this person. This field is always
+ *  present.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
 
 @end
 
@@ -9752,7 +10054,7 @@ GTLR_DEPRECATED
 
 /**
  *  The named range this protected range is backed by, if any. When writing,
- *  only one of range or named_range_id may be set.
+ *  only one of range or named_range_id or table_id may be set.
  */
 @property(nonatomic, copy, nullable) NSString *namedRangeId;
 
@@ -9766,7 +10068,7 @@ GTLR_DEPRECATED
 /**
  *  The range that is being protected. The range may be fully unbounded, in
  *  which case this is considered a protected sheet. When writing, only one of
- *  range or named_range_id may be set.
+ *  range or named_range_id or table_id may be set.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
@@ -9777,6 +10079,12 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requestingUserCanEdit;
+
+/**
+ *  The table this protected range is backed by, if any. When writing, only one
+ *  of range or named_range_id or table_id may be set.
+ */
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 /**
  *  The list of unprotected ranges within a protected sheet. Unprotected ranges
@@ -9878,9 +10186,10 @@ GTLR_DEPRECATED
 /**
  *  Refreshes one or multiple data source objects in the spreadsheet by the
  *  specified references. The request requires an additional `bigquery.readonly`
- *  OAuth scope. If there are multiple refresh requests referencing the same
- *  data source objects in one batch, only the last refresh request is
- *  processed, and all those requests will have the same response accordingly.
+ *  OAuth scope if you are refreshing a BigQuery data source. If there are
+ *  multiple refresh requests referencing the same data source objects in one
+ *  batch, only the last refresh request is processed, and all those requests
+ *  will have the same response accordingly.
  */
 @interface GTLRSheets_RefreshDataSourceRequest : GTLRObject
 
@@ -9993,6 +10302,9 @@ GTLR_DEPRECATED
 /** Adds a slicer. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddSlicerRequest *addSlicer;
 
+/** Adds a table. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddTableRequest *addTable;
+
 /** Appends cells after the last row with data in a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_AppendCellsRequest *appendCells;
 
@@ -10066,6 +10378,9 @@ GTLR_DEPRECATED
 
 /** Deletes a sheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DeleteSheetRequest *deleteSheet;
+
+/** A request for deleting a table. */
+@property(nonatomic, strong, nullable) GTLRSheets_DeleteTableRequest *deleteTable;
 
 /** Duplicates a filter view. */
 @property(nonatomic, strong, nullable) GTLRSheets_DuplicateFilterViewRequest *duplicateFilterView;
@@ -10169,6 +10484,9 @@ GTLR_DEPRECATED
 /** Updates the spreadsheet's properties. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateSpreadsheetPropertiesRequest *updateSpreadsheetProperties;
 
+/** Updates a table. */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateTableRequest *updateTable;
+
 @end
 
 
@@ -10203,6 +10521,9 @@ GTLR_DEPRECATED
 
 /** A reply from adding a slicer. */
 @property(nonatomic, strong, nullable) GTLRSheets_AddSlicerResponse *addSlicer;
+
+/** A reply from adding a table. */
+@property(nonatomic, strong, nullable) GTLRSheets_AddTableResponse *addTable;
 
 /** A reply from cancelling data source object refreshes. */
 @property(nonatomic, strong, nullable) GTLRSheets_CancelDataSourceRefreshResponse *cancelDataSourceRefresh;
@@ -10248,6 +10569,28 @@ GTLR_DEPRECATED
 
 /** A reply from updating an embedded object's position. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionResponse *updateEmbeddedObjectPosition;
+
+@end
+
+
+/**
+ *  Properties of a link to a Google resource (such as a file in Drive, a
+ *  YouTube video, a Maps address, or a Calendar event). Only Drive files can be
+ *  written as chips. All other rich link types are read only. URIs cannot
+ *  exceed 2000 bytes when writing. NOTE: Writing Drive file chips requires at
+ *  least one of the `drive.file`, `drive.readonly`, or `drive` OAuth scopes.
+ */
+@interface GTLRSheets_RichLinkProperties : GTLRObject
+
+/**
+ *  Output only. The [MIME
+ *  type](https://developers.google.com/drive/api/v3/mime-types) of the link, if
+ *  there's one (for example, when it's a file in Drive).
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** Required. The URI to the link. This is always present. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -10390,6 +10733,14 @@ GTLR_DEPRECATED
  */
 @interface GTLRSheets_SetDataValidationRequest : GTLRObject
 
+/**
+ *  Optional. If true, the data validation rule will be applied to the filtered
+ *  rows as well.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filteredRowsIncluded;
+
 /** The range the data validation rule should apply to. */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
@@ -10460,6 +10811,9 @@ GTLR_DEPRECATED
 
 /** The slicers on this sheet. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_Slicer *> *slicers;
+
+/** The tables on this sheet. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_Table *> *tables;
 
 @end
 
@@ -10817,7 +11171,9 @@ GTLR_DEPRECATED
 
 /**
  *  Whether to allow external URL access for image and import functions. Read
- *  only when true. When false, you can set to true.
+ *  only when true. When false, you can set to true. This value will be bypassed
+ *  and always return true if the admin has enabled the [allowlisting
+ *  feature](https://support.google.com/a?p=url_allowlist).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10868,6 +11224,141 @@ GTLR_DEPRECATED
  *  color pairs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_ThemeColorPair *> *themeColors;
+
+@end
+
+
+/**
+ *  A table.
+ */
+@interface GTLRSheets_Table : GTLRObject
+
+/** The table column properties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_TableColumnProperties *> *columnProperties;
+
+/** The table name. This is unique to all tables in the same spreadsheet. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The table range. */
+@property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
+
+/** The table rows properties. */
+@property(nonatomic, strong, nullable) GTLRSheets_TableRowsProperties *rowsProperties;
+
+/** The id of the table. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  A data validation rule for a column in a table.
+ */
+@interface GTLRSheets_TableColumnDataValidationRule : GTLRObject
+
+/**
+ *  The condition that data in the cell must match. Valid only if the
+ *  [BooleanCondition.type] is ONE_OF_LIST.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_BooleanCondition *condition;
+
+@end
+
+
+/**
+ *  The table column.
+ */
+@interface GTLRSheets_TableColumnProperties : GTLRObject
+
+/**
+ *  The 0-based column index. This index is relative to its position in the
+ *  table and is not necessarily the same as the column index in the sheet.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnIndex;
+
+/** The column name. */
+@property(nonatomic, copy, nullable) NSString *columnName;
+
+/**
+ *  The column type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Boolean The boolean
+ *        column type. (Value: "BOOLEAN")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_ColumnTypeUnspecified
+ *        An unspecified column type. (Value: "COLUMN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Currency The currency
+ *        column type. (Value: "CURRENCY")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Date The date column
+ *        type. (Value: "DATE")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_DateTime The date and
+ *        time column type. (Value: "DATE_TIME")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Double The number
+ *        column type. (Value: "DOUBLE")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Dropdown The dropdown
+ *        column type. (Value: "DROPDOWN")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_FilesChip The files
+ *        chip column type (Value: "FILES_CHIP")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_FinanceChip The
+ *        finance chip column type (Value: "FINANCE_CHIP")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_PeopleChip The people
+ *        chip column type (Value: "PEOPLE_CHIP")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Percent The percent
+ *        column type. (Value: "PERCENT")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_PlaceChip The place
+ *        chip column type (Value: "PLACE_CHIP")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_RatingsChip The
+ *        ratings chip column type (Value: "RATINGS_CHIP")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Text The text column
+ *        type. (Value: "TEXT")
+ *    @arg @c kGTLRSheets_TableColumnProperties_ColumnType_Time The time column
+ *        type. (Value: "TIME")
+ */
+@property(nonatomic, copy, nullable) NSString *columnType;
+
+/** The column data validation rule. Only set for dropdown column type. */
+@property(nonatomic, strong, nullable) GTLRSheets_TableColumnDataValidationRule *dataValidationRule;
+
+@end
+
+
+/**
+ *  The table row properties.
+ */
+@interface GTLRSheets_TableRowsProperties : GTLRObject
+
+/**
+ *  The first color that is alternating. If this field is set, the first banded
+ *  row is filled with the specified color. Otherwise, the first banded row is
+ *  filled with a default color.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *firstBandColorStyle;
+
+/**
+ *  The color of the last row. If this field is not set a footer is not added,
+ *  the last row is filled with either first_band_color_style or
+ *  second_band_color_style, depending on the color of the previous row. If
+ *  updating an existing table without a footer to have a footer, the range will
+ *  be expanded by 1 row. If updating an existing table with a footer and
+ *  removing a footer, the range will be shrunk by 1 row.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *footerColorStyle;
+
+/**
+ *  The color of the header row. If this field is set, the header row is filled
+ *  with the specified color. Otherwise, the header row is filled with a default
+ *  color.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *headerColorStyle;
+
+/**
+ *  The second color that is alternating. If this field is set, the second
+ *  banded row is filled with the specified color. Otherwise, the second banded
+ *  row is filled with a default color.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *secondBandColorStyle;
 
 @end
 
@@ -11095,30 +11586,34 @@ GTLR_DEPRECATED
 @interface GTLRSheets_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */
@@ -11520,7 +12015,7 @@ GTLR_DEPRECATED
  *  Updates a data source. After the data source is updated successfully, an
  *  execution is triggered to refresh the associated DATA_SOURCE sheet to read
  *  data from the updated data source. The request requires an additional
- *  `bigquery.readonly` OAuth scope.
+ *  `bigquery.readonly` OAuth scope if you are updating a BigQuery data source.
  */
 @interface GTLRSheets_UpdateDataSourceRequest : GTLRObject
 
@@ -11844,6 +12339,26 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Updates a table in the spreadsheet.
+ */
+@interface GTLRSheets_UpdateTableRequest : GTLRObject
+
+/**
+ *  Required. The fields that should be updated. At least one field must be
+ *  specified. The root `table` is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** Required. The table to update. */
+@property(nonatomic, strong, nullable) GTLRSheets_Table *table;
+
+@end
+
+
+/**
  *  The response when updating a range of values by a data filter in a
  *  spreadsheet.
  */
@@ -11874,8 +12389,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRSheets_ValueRange *updatedData;
 
 /**
- *  The range (in [A1 notation](/sheets/api/guides/concepts#cell)) that updates
- *  were applied to.
+ *  The range (in [A1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell))
+ *  that updates were applied to.
  */
 @property(nonatomic, copy, nullable) NSString *updatedRange;
 
@@ -11957,10 +12473,11 @@ GTLR_DEPRECATED
 
 /**
  *  The range the values cover, in [A1
- *  notation](/sheets/api/guides/concepts#cell). For output, this range
- *  indicates the entire requested range, even though the values will exclude
- *  trailing rows and columns. When appending values, this field represents the
- *  range to search for a table, after which values will be appended.
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
+ *  For output, this range indicates the entire requested range, even though the
+ *  values will exclude trailing rows and columns. When appending values, this
+ *  field represents the range to search for a table, after which values will be
+ *  appended.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 

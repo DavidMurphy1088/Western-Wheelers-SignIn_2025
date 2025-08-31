@@ -50,7 +50,6 @@
 		7BCBB2D32751606500527353 /* SignUpListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBB2D22751606500527353 /* SignUpListener.swift */; };
 		7BF9449726831D610034A70B /* SelectDriveTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF9449626831D610034A70B /* SelectDriveTemplateView.swift */; };
 		7BFDDEDD2698DD8E00497A21 /* RiderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDDEDC2698DD8E00497A21 /* RiderDetailView.swift */; };
-		B00DFE09264FD308DB390E21 /* Pods_Western_Wheelers_SignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1061FF8E30EBBB5D6B7174DD /* Pods_Western_Wheelers_SignIn.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1061FF8E30EBBB5D6B7174DD /* Pods_Western_Wheelers_SignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Western_Wheelers_SignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		42EAFC4A17B4F09F4C9FC0B4 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Western-Wheelers-SignIn.debug.xcconfig"; path = "Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn.debug.xcconfig"; sourceTree = "<group>"; };
-		7A6BF3B3F1625578E772F595 /* Pods-Western-Wheelers-SignIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Western-Wheelers-SignIn.release.xcconfig"; path = "Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn.release.xcconfig"; sourceTree = "<group>"; };
 		7B1A8F9026953C51002E4EF1 /* AddRiderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRiderView.swift; sourceTree = "<group>"; };
 		7B1A8F982695422C002E4EF1 /* AddGuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestView.swift; sourceTree = "<group>"; };
 		7B2241A526A0A48F00F06EB6 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -123,6 +119,8 @@
 		7BCBB2D22751606500527353 /* SignUpListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpListener.swift; sourceTree = "<group>"; };
 		7BF9449626831D610034A70B /* SelectDriveTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDriveTemplateView.swift; sourceTree = "<group>"; };
 		7BFDDEDC2698DD8E00497A21 /* RiderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderDetailView.swift; sourceTree = "<group>"; };
+		81A03AFA2207F70BF612C31A /* Pods-Western-Wheelers-SignIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Western-Wheelers-SignIn.release.xcconfig"; path = "Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn.release.xcconfig"; sourceTree = "<group>"; };
+		D26F7F287D518C609E378D99 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Western-Wheelers-SignIn.debug.xcconfig"; path = "Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +131,6 @@
 				7BA4C7B726C230C7003F632B /* CloudKit.framework in Frameworks */,
 				7B325FDF26C6FF6B001E4354 /* MapKit.framework in Frameworks */,
 				7B22418D269FEF0A00F06EB6 /* SwiftSoup in Frameworks */,
-				B00DFE09264FD308DB390E21 /* Pods_Western_Wheelers_SignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,8 +154,8 @@
 		719260E60608610A131597E5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				42EAFC4A17B4F09F4C9FC0B4 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */,
-				7A6BF3B3F1625578E772F595 /* Pods-Western-Wheelers-SignIn.release.xcconfig */,
+				D26F7F287D518C609E378D99 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */,
+				81A03AFA2207F70BF612C31A /* Pods-Western-Wheelers-SignIn.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -287,7 +284,6 @@
 			children = (
 				7B325FDE26C6FF6B001E4354 /* MapKit.framework */,
 				7BA4C7B626C230C7003F632B /* CloudKit.framework */,
-				1061FF8E30EBBB5D6B7174DD /* Pods_Western_Wheelers_SignIn.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -299,11 +295,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B99994F2680110400F3E65D /* Build configuration list for PBXNativeTarget "Western-Wheelers-SignIn" */;
 			buildPhases = (
-				F6E2CCD6B43B64C80F0158CF /* [CP] Check Pods Manifest.lock */,
+				297828339B7F2FB39B28F70C /* [CP] Check Pods Manifest.lock */,
 				7B9999212680110300F3E65D /* Sources */,
 				7B9999222680110300F3E65D /* Frameworks */,
 				7B9999232680110300F3E65D /* Resources */,
-				19F7E2B599452BCC7AA70D16 /* [CP] Embed Pods Frameworks */,
+				009CC5489BEB7FE08590ADE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -430,7 +426,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		19F7E2B599452BCC7AA70D16 /* [CP] Embed Pods Frameworks */ = {
+		009CC5489BEB7FE08590ADE5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,7 +443,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Western-Wheelers-SignIn/Pods-Western-Wheelers-SignIn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6E2CCD6B43B64C80F0158CF /* [CP] Check Pods Manifest.lock */ = {
+		297828339B7F2FB39B28F70C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -660,7 +656,7 @@
 		};
 		7B9999502680110400F3E65D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42EAFC4A17B4F09F4C9FC0B4 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */;
+			baseConfigurationReference = D26F7F287D518C609E378D99 /* Pods-Western-Wheelers-SignIn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -672,12 +668,12 @@
 				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Western-Wheelers-SignIn/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -689,7 +685,7 @@
 		};
 		7B9999512680110400F3E65D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A6BF3B3F1625578E772F595 /* Pods-Western-Wheelers-SignIn.release.xcconfig */;
+			baseConfigurationReference = 81A03AFA2207F70BF612C31A /* Pods-Western-Wheelers-SignIn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -701,12 +697,12 @@
 				DEVELOPMENT_TEAM = 2B6A6N9QBQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Western-Wheelers-SignIn/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dmurphy.westernwheelers.Western-Wheelers-SignIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
