@@ -307,6 +307,9 @@ struct CurrentRideView: View {
     func info() -> String {
         var info = "Thanks for using the Western Wheelers Sign-In app and I hope you find it useful. Feel free to send any suggestions or new ideas to davidmurphy1088@gmail.com"
         info += "\n\n\(version())"
+        if let infoMsg = Messages.instance.infoMessage {
+            info += "\n\n\(infoMsg)"
+        }
         info += "\n\n"+Messages.instance.getMessages()
         return info
     }

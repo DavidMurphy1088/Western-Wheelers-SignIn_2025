@@ -37,7 +37,7 @@ class RideTemplates : ObservableObject {
                             $0.getDisplayName() < $1.getDisplayName()
                         }
                     }
-                    Messages.instance.sendMessage(msg: "Loaded \(self.list.count) templates", publish: false)
+                    Messages.instance.sendMessage(msg: "Loaded \(self.list.count) templates", publish: false, userMsg: false)
                 }
             }
         }

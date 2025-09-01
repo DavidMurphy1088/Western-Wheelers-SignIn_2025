@@ -7,13 +7,19 @@ class Messages : ObservableObject {
     @Published public var messages:[String] = []
     @Published public var errMessage:String? = nil
     @Published public var userMessage:String? = nil
+    @Published public var infoMessage:String? = nil
     
-    func sendMessage(msg: String, publish:Bool) {
-        DispatchQueue.main.async {
+    func sendMessage(msg: String, publish:Bool, userMsg:Bool) {
+        DispatchQueue.main.async { [self] in
             print("➡️ MESSAGE", msg, publish ? "\t\t▶️ Published" : "")
             self.messages.append(msg)
-            if publish {
-                self.userMessage = msg
+            if userMsg {
+                if publish {
+                    self.userMessage = msg
+                }
+            }
+            else {
+                infoMessage = msg
             }
         }
     }
@@ -54,7 +60,7 @@ class Messages : ObservableObject {
                 message += " " + err.localizedDescription
             }
             self.errMessage = context + " " + message
-            Messages.instance.sendMessage(msg: "Error:\(String(describing: self.errMessage))", publish: true)
+            Messages.instance.sendMessage(msg: "Error:\(String(describing: self.errMessage))", publish: true, userMsg: true)
         }
     }
     

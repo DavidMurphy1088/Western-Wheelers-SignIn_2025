@@ -188,7 +188,7 @@ class SignedInRiders : RiderList {
                 let decoder = JSONDecoder()
                 if let decoded = try? decoder.decode([Rider].self, from: json as Data) {
                     list = decoded
-                    Messages.instance.sendMessage(msg: "Restored \(self.selectedCount()) signed in riders from local", publish: false)
+                    Messages.instance.sendMessage(msg: "Restored \(self.selectedCount()) signed in riders from local", publish: false, userMsg: false)
                 }
             }
             catch {

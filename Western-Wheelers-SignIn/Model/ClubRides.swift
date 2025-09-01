@@ -43,10 +43,9 @@ class ClubRides : ObservableObject {
             if let cachedRides = self.loadFromLocal() {
                 self.setRidesList(rides: cachedRides, saveToLocal: false, clearUserMsg: false)
                 self.loadedFromLocal = true
-                
             }
-            let msg = self.loadedFromLocal ? "Updating club ride list..." : "Starting download of club rides..."
-            Messages.instance.sendMessage(msg: msg, publish: true)
+            let msg = "Starting download of club rides..."
+            Messages.instance.sendMessage(msg: msg, publish: true, userMsg: !self.loadedFromLocal)
             let eventsUrl = self.getURL(skip: 0)
             self.startLoadTime = Date()
             self.api.apiCall(context: "Load rides", url: eventsUrl, username:nil, password:nil,
@@ -100,7 +99,7 @@ class ClubRides : ObservableObject {
             let timeInterval = Date().timeIntervalSince(self.startLoadTime)
             let secs = String(format: "%.2f", timeInterval)
             let msg = "SetRidesList, total rides \(self.listPublished.count), loaded in \(secs) secs"
-            Messages.instance.sendMessage(msg: msg, publish: false)
+            Messages.instance.sendMessage(msg: msg, publish: false, userMsg: !self.loadedFromLocal)
             if clearUserMsg {
                 Messages.instance.clearUserMessage()
             }
@@ -187,7 +186,7 @@ class ClubRides : ObservableObject {
             let eventsUrl = self.getURL(skip: listPagedSkip)
             if !loadedFromLocal {
                 Messages.instance.sendMessage(
-                    msg: "Downloaded \(self.pagedListFromAPI.count) rides, continuing...", publish: true)
+                    msg: "Downloaded \(self.pagedListFromAPI.count) rides", publish: true, userMsg: !self.loadedFromLocal)
             }
             self.api.apiCall(context: "Load rides", url: eventsUrl, username:nil, password:nil,
                              completion: self.loadPageOfRides,
@@ -204,7 +203,8 @@ class ClubRides : ObservableObject {
             encoder.outputFormatting = .prettyPrinted
             let data = try encoder.encode(rides)
             UserDefaults.standard.set(data, forKey: "rides")
-            Messages.instance.sendMessage(msg: "Saved to local cache \(rides.count) rides, size:\(data.count)", publish: false)
+            Messages.instance.sendMessage(msg: "Saved to local cache \(rides.count) rides, size:\(data.count)",
+                                          publish: false, userMsg: !self.loadedFromLocal)
         } catch {
             Messages.instance.reportError(context: "Save rides to local cache", msg: error.localizedDescription)
         }
@@ -215,7 +215,7 @@ class ClubRides : ObservableObject {
             do {
                 let decoder = JSONDecoder()
                 let rides = try decoder.decode([ClubRide].self, from: data)
-                Messages.instance.sendMessage(msg: "Loaded from local cache \(rides.count) rides, size:\(data.count)", publish: false)
+                Messages.instance.sendMessage(msg: "Loaded from local cache \(rides.count) rides, size:\(data.count)", publish: false, userMsg: !self.loadedFromLocal)
                 return rides
             }
             catch {
